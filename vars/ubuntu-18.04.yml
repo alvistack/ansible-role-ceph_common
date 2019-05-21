@@ -21,5 +21,7 @@ _apt_repository: [
   { state: "present", repo: "deb https://download.ceph.com/debian-nautilus bionic main" },
 ]
 _apt: [
-  { state: "present", name: "ceph-common" },
+  { state: "latest", name: "ceph-common" },
+  { state: "latest", name: "ceph-fuse" },
+  { state: "latest", name: "rbd-fuse" },
 ]

@@ -19,4 +19,6 @@ _zypper_repository: [
 ]
 _zypper: [
   { state: "latest", name: "ceph-common" },
+  { state: "latest", name: "ceph-fuse" },
+  { state: "latest", name: "rbd-fuse" },
 ]
