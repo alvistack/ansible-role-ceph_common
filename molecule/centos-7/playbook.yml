@@ -18,11 +18,10 @@
   remote_user: root
   roles:
     - role: bootstrap
+    - role: ntp
     - role: ceph-common
 
-- hosts: all
-  remote_user: root
-  tasks:
+  post_tasks:
     - name: ceph --version
       command: ceph --version
       register: result
