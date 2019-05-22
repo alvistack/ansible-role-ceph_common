@@ -18,7 +18,7 @@ _apt_key: [
   { state: "present", id: "460F3994", url: "https://download.ceph.com/keys/release.asc" },
 ]
 _apt_repository: [
-  { state: "present", repo: "deb https://download.ceph.com/debian-nautilus bionic main" },
+  { state: "present", repo: "deb https://download.ceph.com/debian-{{ ceph_version }} bionic main" },
 ]
 _apt: [
   { state: "latest", name: "ceph-common" },
