@@ -16,6 +16,7 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: bootstrap
     - role: ntp
