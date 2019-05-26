@@ -20,7 +20,13 @@
   roles:
     - role: bootstrap
     - role: ntp
+
+- hosts: ceph-mon
+  remote_user: root
+  become: true
+  roles:
     - role: ceph-common
+      ceph_fsid: "{{ groups['ceph-mon'][0] | to_uuid }}"
 
   post_tasks:
     - name: ceph --version
