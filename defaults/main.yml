@@ -40,15 +40,15 @@ ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_
 
 # Ceph global configs.
 ceph_global_config:
-  - { section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
-  - { section: "global", option: "public network", value: "{{ ceph_public_network }}" }
-  - { section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
-  - { section: "global", option: "mon initial members", value: "{{ ceph_mon_initial_members }}" }
-  - { section: "global", option: "mon host", value: "{{ ceph_mon_host }}" }
-  - { section: "global", option: "auth cluster required", value: "cephx" }
-  - { section: "global", option: "auth service required", value: "cephx" }
-  - { section: "global", option: "auth client required", value: "cephx" }
-  - { section: "global", option: "osd pool default size", value: "3" }
-  - { section: "global", option: "osd pool default min size", value: "2" }
-  - { section: "global", option: "osd pool default pg num", value: "128" }
-  - { section: "global", option: "osd pool default pgp num", value: "128" }
+  - { state: "present", section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
+  - { state: "present", section: "global", option: "public network", value: "{{ ceph_public_network }}" }
+  - { state: "present", section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
+  - { state: "present", section: "global", option: "mon initial members", value: "{{ ceph_mon_initial_members }}" }
+  - { state: "present", section: "global", option: "mon host", value: "{{ ceph_mon_host }}" }
+  - { state: "present", section: "global", option: "auth cluster required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth service required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth client required", value: "cephx" }
+  - { state: "present", section: "global", option: "osd pool default size", value: "3" }
+  - { state: "present", section: "global", option: "osd pool default min size", value: "2" }
+  - { state: "present", section: "global", option: "osd pool default pg num", value: "128" }
+  - { state: "present", section: "global", option: "osd pool default pgp num", value: "128" }
