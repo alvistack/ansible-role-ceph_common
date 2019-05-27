@@ -21,4 +21,5 @@ _zypper: [
   { state: "latest", name: "ceph-common" },
   { state: "latest", name: "ceph-fuse" },
   { state: "latest", name: "rbd-fuse" },
+  { state: "latest", name: "rbd-nbd" },
 ]
