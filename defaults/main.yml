@@ -48,7 +48,7 @@ ceph_global_config:
   - { state: "present", section: "global", option: "auth cluster required", value: "cephx" }
   - { state: "present", section: "global", option: "auth service required", value: "cephx" }
   - { state: "present", section: "global", option: "auth client required", value: "cephx" }
-  - { state: "present", section: "global", option: "osd pool default size", value: "3" }
-  - { state: "present", section: "global", option: "osd pool default min size", value: "2" }
+  - { state: "present", section: "global", option: "osd pool default size", value: "1" }
+  - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
   - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
   - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }
