@@ -16,3 +16,39 @@
 
 # Ceph version.
 ceph_version: "nautilus"
+
+# Ceph fsid.
+ceph_fsid: "{{ ansible_play_hosts[0] | to_uuid }}"
+
+# Ceph mon initial members.
+ceph_mon_initial_members: >-
+  {%- for host in ansible_play_hosts -%}
+  {{ host }},
+  {%- endfor -%}
+
+# Ceph mon host.
+ceph_mon_host: >-
+  {%- for host in ansible_play_hosts -%}
+  {{ hostvars[host]['ansible_default_ipv4']['address'] }},
+  {%- endfor -%}
+
+# Ceph public network.
+ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
+
+# Ceph cluster network.
+ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
+
+# Ceph global configs.
+ceph_global_config:
+  - { state: "present", section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
+  - { state: "present", section: "global", option: "public network", value: "{{ ceph_public_network }}" }
+  - { state: "present", section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
+  - { state: "present", section: "global", option: "mon initial members", value: "{{ ceph_mon_initial_members }}" }
+  - { state: "present", section: "global", option: "mon host", value: "{{ ceph_mon_host }}" }
+  - { state: "present", section: "global", option: "auth cluster required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth service required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth client required", value: "cephx" }
+  - { state: "present", section: "global", option: "osd pool default size", value: "1" }
+  - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
+  - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
+  - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }

@@ -25,6 +25,12 @@ platforms:
       server: https://images.linuxcontainers.org
       protocol: simplestreams
       alias: ubuntu/xenial/amd64
+    groups:
+      - ceph-mon
+      - ceph-mgr
+      - ceph-osd
+      - ceph-mds
+      - ceph-rgw
 lint:
   name: yamllint
 dependency:

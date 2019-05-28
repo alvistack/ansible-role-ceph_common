@@ -15,8 +15,11 @@
 # limitations under the License.
 
 _zypper_repository: [
-  { state: "present", name: "OBS:filesystems:ceph", repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/{{ ceph_version }}/openSUSE_Leap_15.0/" },
+  { state: "present", name: "OBS:filesystems:ceph", repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/{{ ceph_version }}/openSUSE_Leap_15.1/" },
 ]
 _zypper: [
   { state: "latest", name: "ceph-common" },
+  { state: "latest", name: "ceph-fuse" },
+  { state: "latest", name: "rbd-fuse" },
+  { state: "latest", name: "rbd-nbd" },
 ]

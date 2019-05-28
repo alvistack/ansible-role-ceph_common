@@ -16,14 +16,30 @@
 
 - hosts: all
   remote_user: root
+  become: true
   roles:
     - role: bootstrap
-    - role: ceph-common
+    - role: ntp
 
-- hosts: all
+- hosts: ceph-mon
   remote_user: root
-  tasks:
+  become: true
+  roles:
+    - role: ceph-common
+      ceph_fsid: "{{ groups['ceph-mon'][0] | to_uuid }}"
+
+  post_tasks:
     - name: ceph --version
       command: ceph --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: ceph-fuse --version
+      command: ceph-fuse --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: rbd-fuse --version
+      command: rbd-fuse --version
       register: result
       changed_when: result is not succeeded
