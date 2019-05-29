@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Ceph version.
-ceph_version: "nautilus"
+ceph_release: "nautilus"
 
 # Ceph fsid.
 ceph_fsid: "{{ ansible_play_hosts[0] | to_uuid }}"
