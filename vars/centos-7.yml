@@ -26,7 +26,8 @@ _yum_repository: [
     enabled: true,
     priority: "2",
     gpgcheck: true,
-    gpgkey: "https://download.ceph.com/keys/release.asc"
+    gpgkey: "https://download.ceph.com/keys/release.asc",
+    state: "present",
   },
   {
     file: "ceph-noarch",
@@ -36,7 +37,8 @@ _yum_repository: [
     enabled: true,
     priority: "2",
     gpgcheck: true,
-    gpgkey: "https://download.ceph.com/keys/release.asc"
+    gpgkey: "https://download.ceph.com/keys/release.asc",
+    state: "present",
   },
 ]
 _yum: [
