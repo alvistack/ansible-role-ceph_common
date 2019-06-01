@@ -18,8 +18,6 @@ _zypper_repository: [
   {
     name: "OBS:filesystems:ceph",
     repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/{{ ceph_release }}/openSUSE_Leap_15.1/",
-    auto_import_keys: true,
-    autorefresh: true,
     state: "present",
   },
 ]
