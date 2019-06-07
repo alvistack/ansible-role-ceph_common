@@ -18,7 +18,7 @@
 ceph_release: "nautilus"
 
 # Ceph fsid.
-ceph_fsid: "{{ ansible_play_hosts[0] | to_uuid }}"
+ceph_fsid: "{{ hostvars[ansible_play_hosts[0]]['ansible_machine_id'] | to_uuid }}"
 
 # Ceph mon initial members.
 ceph_mon_initial_members: >-
