@@ -55,7 +55,7 @@
     group: "{{ item.group | default('root') }}"
     mode: "{{ item.mode | default('0755') }}"
     state: "{{ item.state | default('directory') }}"
-  with_items:
+  loop:
     - { dest: "/etc/ceph" }
   tags: ceph_common
 
@@ -67,7 +67,7 @@
     mode: "{{ item.mode | default('0644') }}"
     content: ""
     force: false
-  with_items:
+  loop:
     - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
   tags: ceph_common
 
@@ -78,5 +78,5 @@
     option: "{{ item.option | default(None) or omit }}"
     value: "{{ item.value | default(None) or omit }}"
     state: "{{ item.state | default('present') }}"
-  with_items: "{{ ceph_global_config }}"
+  loop: "{{ ceph_global_config }}"
   tags: ceph_common
