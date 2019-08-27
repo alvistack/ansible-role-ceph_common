@@ -4,9 +4,9 @@
 
 ### Major Changes
 
-## 3.3.0 - 2019-08-27
-
   - Apply sysctl entries in individual file
+
+## 3.3.0 - 2019-08-27
 
 ### Major Changes
 

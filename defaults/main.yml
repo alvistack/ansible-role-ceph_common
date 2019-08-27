@@ -55,8 +55,8 @@ ceph_global_config:
 
 # Entries for sysctl.
 ceph_sysctl:
-  - { state: "present", sysctl_file: "/etc/sysctl.d/50-ceph.conf", name: "fs.file-max", value: "26234859" }
-  - { state: "present", sysctl_file: "/etc/sysctl.d/50-ceph.conf", name: "kernel.pid_max", value: "4194303" }
-  - { state: "present", sysctl_file: "/etc/sysctl.d/50-ceph.conf", name: "vm.min_free_kbytes", value: "65536" }
-  - { state: "present", sysctl_file: "/etc/sysctl.d/50-ceph.conf", name: "vm.swappiness", value: "0" }
-  - { state: "present", sysctl_file: "/etc/sysctl.d/50-ceph.conf", name: "vm.zone_reclaim_mode", value: "0" }
+  - { state: "present", line: "fs.file-max = 26234859" }
+  - { state: "present", line: "kernel.pid_max = 4194303" }
+  - { state: "present", line: "vm.min_free_kbytes = 65536" }
+  - { state: "present", line: "vm.swappiness = 0" }
+  - { state: "present", line: "vm.zone_reclaim_mode = 0" }
