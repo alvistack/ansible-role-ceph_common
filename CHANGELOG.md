@@ -6,6 +6,8 @@
 
 ## 3.3.0 - 2019-08-27
 
+  - Apply sysctl entries in individual file
+
 ### Major Changes
 
   - Update for RHEL 7

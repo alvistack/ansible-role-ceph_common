@@ -52,3 +52,11 @@ ceph_global_config:
   - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
   - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
   - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }
+
+# Entries for sysctl.
+ceph_sysctl:
+  - { sysctl_file: "/etc/sysctl.d/50-ceph.conf", state: "present", name: "fs.file-max", value: "26234859" }
+  - { sysctl_file: "/etc/sysctl.d/50-ceph.conf", state: "present", name: "kernel.pid_max", value: "4194303" }
+  - { sysctl_file: "/etc/sysctl.d/50-ceph.conf", state: "present", name: "vm.min_free_kbytes", value: "65536" }
+  - { sysctl_file: "/etc/sysctl.d/50-ceph.conf", state: "present", name: "vm.swappiness", value: "0" }
+  - { sysctl_file: "/etc/sysctl.d/50-ceph.conf", state: "present", name: "vm.zone_reclaim_mode", value: "0" }

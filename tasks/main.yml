@@ -57,6 +57,7 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/ceph" }
+    - { dest: "/etc/sysctl.d" }
   tags: ceph_common
 
 - name: touch files
@@ -79,4 +80,13 @@
     value: "{{ item.value | default(None) or omit }}"
     state: "{{ item.state | default('present') }}"
   loop: "{{ ceph_global_config }}"
+  tags: ceph_common
+
+- name: tweak sysctl entries
+  sysctl:
+    sysctl_file: "{{ item.sysctl_file }}"
+    name: "{{ item.name }}"
+    value: "{{ item.value | default(None) or omit }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ ceph_sysctl }}"
   tags: ceph_common
