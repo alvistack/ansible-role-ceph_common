@@ -39,7 +39,7 @@ ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_i
 ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
 
 # Ceph global configs.
-ceph_global_config:
+ceph_common_config:
   - { state: "present", section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
   - { state: "present", section: "global", option: "public network", value: "{{ ceph_public_network }}" }
   - { state: "present", section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
@@ -52,3 +52,14 @@ ceph_global_config:
   - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
   - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
   - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }
+  - { state: "present", section: "client", option: "client oc size", value: "33554432" }
+  - { state: "present", section: "client", option: "client oc max dirty", value: "16777216" }
+  - { state: "present", section: "client", option: "client oc target dirty", value: "8388608" }
+
+# Entries for sysctl.
+ceph_sysctl:
+  - { state: "present", line: "fs.file-max = 26234859" }
+  - { state: "present", line: "kernel.pid_max = 4194303" }
+  - { state: "present", line: "vm.min_free_kbytes = 65536" }
+  - { state: "present", line: "vm.swappiness = 0" }
+  - { state: "present", line: "vm.zone_reclaim_mode = 0" }

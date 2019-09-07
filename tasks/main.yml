@@ -57,6 +57,7 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/ceph" }
+    - { dest: "/etc/sysctl.d" }
   tags: ceph_common
 
 - name: touch files
@@ -78,5 +79,22 @@
     option: "{{ item.option | default(None) or omit }}"
     value: "{{ item.value | default(None) or omit }}"
     state: "{{ item.state | default('present') }}"
-  loop: "{{ ceph_global_config }}"
+  loop: "{{ ceph_common_config }}"
+  tags: ceph_common
+
+- name: tweak sysctl entries
+  lineinfile:
+    path: "/etc/sysctl.d/50-ceph.conf"
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp | default('^' + item.line | regex_escape() + '$') }}"
+    state: "{{ item.state | default('present') }}"
+    insertafter: "EOF"
+    create: true
+  loop: "{{ ceph_sysctl }}"
+  notify:
+    - ceph-common | sysctl --system
+  tags: ceph_common
+
+- name: flush handlers
+  meta: flush_handlers
   tags: ceph_common
