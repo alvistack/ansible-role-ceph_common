@@ -39,7 +39,7 @@ ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_i
 ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
 
 # Ceph global configs.
-ceph_global_config:
+ceph_common_config:
   - { state: "present", section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
   - { state: "present", section: "global", option: "public network", value: "{{ ceph_public_network }}" }
   - { state: "present", section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
