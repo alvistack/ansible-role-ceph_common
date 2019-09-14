@@ -43,3 +43,13 @@
       command: ceph --version
       register: result
       changed_when: result is not succeeded
+
+    - name: rbd --version
+      command: rbd --version
+      register: result
+      changed_when: result is not succeeded
+
+    - name: mount.ceph -h
+      command: mount.ceph -h
+      register: result
+      changed_when: result is not succeeded
