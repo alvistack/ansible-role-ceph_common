@@ -16,7 +16,7 @@
 
 _zypper_repository: [
   {
-    name: "OBS:filesystems:ceph",
+    name: "filesystems:ceph:nautilus",
     repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/{{ ceph_release }}/openSUSE_Leap_15.1/",
     state: "present",
   },

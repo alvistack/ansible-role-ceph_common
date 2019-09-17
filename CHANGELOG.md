@@ -5,6 +5,8 @@
 ### Major Changes
 
   - Apply sysctl entries in individual file
+  - Add `[client]` section in `ceph.conf` globally
+  - Remove `rbd-fuse`, `rbd-nbd` and `ceph-fuse` from default
 
 ## 3.3.0 - 2019-08-27
 
