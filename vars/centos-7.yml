@@ -14,33 +14,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key: [
-  { state: "present", key: "https://download.ceph.com/keys/release.asc" },
-]
-_yum_repository: [
-  {
-    file: "ceph",
-    name: "ceph",
-    description: "Ceph packages for $basearch",
-    baseurl: "https://download.ceph.com/rpm-{{ ceph_release }}/el7/$basearch",
-    enabled: true,
-    priority: "2",
-    gpgcheck: true,
-    gpgkey: "https://download.ceph.com/keys/release.asc",
-    state: "present",
-  },
-  {
-    file: "ceph-noarch",
-    name: "ceph-noarch",
-    description: "Ceph noarch packages",
-    baseurl: "https://download.ceph.com/rpm-{{ ceph_release }}/el7/noarch",
-    enabled: true,
-    priority: "2",
-    gpgcheck: true,
-    gpgkey: "https://download.ceph.com/keys/release.asc",
-    state: "present",
-  },
-]
-_yum: [
-  { state: "latest", name: "ceph-common" },
-]
+_rpm_key:
+  - { state: "present", key: "https://download.ceph.com/keys/release.asc" }
+
+_yum_repository:
+  - file: "ceph"
+    name: "ceph"
+    description: "Ceph packages for $basearch"
+    baseurl: "https://download.ceph.com/rpm-{{ ceph_release }}/el7/$basearch"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "https://download.ceph.com/keys/release.asc"
+    state: "present"
+  - file: "ceph-noarch"
+    name: "ceph-noarch"
+    description: "Ceph noarch packages"
+    baseurl: "https://download.ceph.com/rpm-{{ ceph_release }}/el7/noarch"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "https://download.ceph.com/keys/release.asc"
+    state: "present"
+
+_yum:
+  - { state: "latest", name: "ceph-common" }

@@ -1,9 +1,14 @@
 # Ansible Role for ceph-common
 
-## 3.4.0 - TBC
+## 3.5.0 - TBC
 
 ### Major Changes
 
+## 3.4.0 - 2019-09-18
+
+### Major Changes
+
+  - Run molecule test manually on Travis CI
   - Apply sysctl entries in individual file
   - Add `[client]` section in `ceph.conf` globally
   - Remove `rbd-fuse`, `rbd-nbd` and `ceph-fuse` from default
