@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Run molecule test manually on Travis CI
   - Apply sysctl entries in individual file
   - Add `[client]` section in `ceph.conf` globally
   - Remove `rbd-fuse`, `rbd-nbd` and `ceph-fuse` from default
