@@ -14,12 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key: [
-  { state: "present", id: "460F3994", url: "https://download.ceph.com/keys/release.asc" },
-]
-_apt_repository: [
-  { state: "present", repo: "deb https://download.ceph.com/debian-{{ ceph_release }} xenial main" },
-]
-_apt: [
-  { state: "latest", name: "ceph-common" },
-]
+_apt_key:
+  - { state: "present", id: "460F3994", url: "https://download.ceph.com/keys/release.asc" }
+
+_apt_repository:
+  - { state: "present", repo: "deb https://download.ceph.com/debian-{{ ceph_release }} xenial main" }
+
+_apt:
+  - { state: "latest", name: "ceph-common" }
