@@ -57,7 +57,6 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/ceph" }
-    - { dest: "/etc/sysctl.d" }
   tags: ceph_common
 
 - name: touch files
@@ -84,12 +83,11 @@
 
 - name: tweak sysctl entries
   lineinfile:
-    path: "/etc/sysctl.d/50-ceph.conf"
+    path: "/etc/sysctl.conf"
     line: "{{ item.line }}"
     regexp: "{{ item.regexp | default('^' + item.line | regex_escape() + '$') }}"
     state: "{{ item.state | default('present') }}"
     insertafter: "EOF"
-    create: true
   loop: "{{ ceph_sysctl }}"
   notify:
     - ceph-common | sysctl --system

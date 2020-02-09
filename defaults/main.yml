@@ -58,8 +58,8 @@ ceph_common_config:
 
 # Entries for sysctl.
 ceph_sysctl:
-  - { state: "present", line: "fs.file-max = 26234859" }
-  - { state: "present", line: "kernel.pid_max = 4194303" }
-  - { state: "present", line: "vm.min_free_kbytes = 65536" }
-  - { state: "present", line: "vm.swappiness = 0" }
-  - { state: "present", line: "vm.zone_reclaim_mode = 0" }
+  - { state: "present", line: "fs.file-max = 26234859", regexp: "^\\s*fs.file-max\\s*=\\s*" }
+  - { state: "present", line: "kernel.pid_max = 4194303", regexp: "^\\s*kernel.pid_max\\s*=\\s*" }
+  - { state: "present", line: "vm.min_free_kbytes = 65536", regexp: "^\\s*vm.min_free_kbytes\\s*=\\s*" }
+  - { state: "present", line: "vm.swappiness = 0", regexp: "^\\s*vm.swappiness\\s*=\\s*" }
+  - { state: "present", line: "vm.zone_reclaim_mode = 0", regexp: "^\\s*vm.zone_reclaim_mode\\s*=\\s*" }
