@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _apt_key:
-  - { state: "present", id: "460F3994", url: "https://download.ceph.com/keys/release.asc" }
+  - { state: "present", url: "https://download.ceph.com/keys/release.asc" }
 
 _apt_repository:
   - { state: "present", repo: "deb https://download.ceph.com/debian-{{ ceph_release }} bionic main" }
