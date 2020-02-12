@@ -82,17 +82,9 @@
   tags: ceph_common
 
 - name: tweak sysctl entries
-  lineinfile:
-    path: "/etc/sysctl.conf"
-    line: "{{ item.line }}"
-    regexp: "{{ item.regexp | default('^' + item.line | regex_escape() + '$') }}"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
     state: "{{ item.state | default('present') }}"
-    insertafter: "EOF"
   loop: "{{ ceph_sysctl }}"
-  notify:
-    - ceph-common | sysctl --system
-  tags: ceph_common
-
-- name: flush handlers
-  meta: flush_handlers
   tags: ceph_common
