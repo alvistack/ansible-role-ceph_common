@@ -37,19 +37,3 @@
         {%- endfor -%}
       ceph_public_network: "{{ (ansible_eth1.ipv4.network + '/' + ansible_eth1.ipv4.netmask) | ipaddr('net') }}"
       ceph_cluster_network: "{{ (ansible_eth1.ipv4.network + '/' + ansible_eth1.ipv4.netmask) | ipaddr('net') }}"
-
-  post_tasks:
-    - name: ceph --version
-      command: ceph --version
-      register: result
-      changed_when: result is not succeeded
-
-    - name: rbd --version
-      command: rbd --version
-      register: result
-      changed_when: result is not succeeded
-
-    - name: mount.ceph -h
-      command: mount.ceph -h
-      register: result
-      changed_when: result is not succeeded
