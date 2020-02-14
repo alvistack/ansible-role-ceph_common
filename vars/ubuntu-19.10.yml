@@ -14,11 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_apt_key:
-  - { state: "present", url: "https://download.ceph.com/keys/release.asc" }
+_apt_key: []
 
-_apt_repository:
-  - { state: "present", repo: "deb https://download.ceph.com/debian-{{ ceph_release }} bionic main" }
+_apt_repository: []
 
 _apt:
   - { state: "latest", name: "ceph-common" }
