@@ -1,4 +1,4 @@
-# Ansible Role for ceph-common
+# Ansible Role for Ceph Common
 
 ## 4.3.0 - TBC
 

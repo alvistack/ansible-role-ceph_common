@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: ceph-common | sysctl --system
+- name: ceph_common | sysctl --system
   command: sysctl --system
   changed_when: false
   ignore_errors: true
