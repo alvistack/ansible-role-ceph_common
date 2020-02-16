@@ -25,3 +25,6 @@ ceph_mon_host: >-
   {%- endfor -%}
 ceph_public_network: "{{ (ansible_eth1.ipv4.network + '/' + ansible_eth1.ipv4.netmask) | ipaddr('net') }}"
 ceph_cluster_network: "{{ (ansible_eth1.ipv4.network + '/' + ansible_eth1.ipv4.netmask) | ipaddr('net') }}"
+
+ceph_volume:
+  - { objectstore: "bluestore", data: "/dev/sdb" }
