@@ -90,7 +90,7 @@
     reload: false
   loop: "{{ ceph_sysctl }}"
   notify:
-    - ceph-common | sysctl --system
+    - ceph_common | sysctl --system
   tags: ceph_common
 
 - name: flush handlers

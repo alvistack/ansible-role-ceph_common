@@ -1,11 +1,11 @@
-# Ansible Role for ceph-common
+# Ansible Role for Ceph Common
 
-[![Travis](https://img.shields.io/travis/alvistack/ansible-role-ceph-common.svg)](https://travis-ci.org/alvistack/ansible-role-ceph-common)
-[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-ceph-common.svg)](https://github.com/alvistack/ansible-role-ceph-common)
-[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ceph-common.svg)](https://github.com/alvistack/ansible-role-ceph-common/blob/master/LICENSE)
+[![Travis](https://img.shields.io/travis/alvistack/ansible-role-ceph_common.svg)](https://travis-ci.org/alvistack/ansible-role-ceph_common)
+[![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common)
+[![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.ceph_common-blue.svg)](https://galaxy.ansible.com/alvistack/ceph_common)
 
-Ansible Role for ceph-common Installation.
+Ansible Role for Ceph Common Installation.
 
 ## Requirements
 
