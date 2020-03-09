@@ -22,15 +22,19 @@ ceph_fsid: "{{ hostvars[ansible_play_hosts[0]].ansible_machine_id | to_uuid }}"
 
 # Ceph mon initial members.
 ceph_mon_initial_members: >-
+  {%- set _params = [] -%}
   {%- for host in ansible_play_hosts -%}
-  {{ host }},
+  {%-   set _params = _params.append(host) -%}
   {%- endfor -%}
+  {{ _params | join(',') }}
 
 # Ceph mon host.
 ceph_mon_host: >-
+  {%- set _params = [] -%}
   {%- for host in ansible_play_hosts -%}
-  {{ hostvars[host].ansible_default_ipv4.address }},
+  {%-   set _params = _params.append(hostvars[host].ansible_default_ipv4.address) -%}
   {%- endfor -%}
+  {{ _params | join(',') }}
 
 # Ceph public network.
 ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
