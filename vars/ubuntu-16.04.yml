@@ -20,10 +20,12 @@ _apt_key:
     state: "present"
 
 _apt_repository:
+  octopus: []
   nautilus:
     - repo: "deb https://download.ceph.com/debian-nautilus xenial main"
       state: "present"
 
 _apt:
+  octopus: []
   nautilus:
     - { state: "latest", name: "ceph-common" }

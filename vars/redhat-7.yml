@@ -20,6 +20,25 @@ _rpm_key:
     state: "present"
 
 _yum_repository:
+  octopus:
+    - file: "ceph"
+      name: "ceph"
+      description: "Ceph packages for $basearch"
+      baseurl: "https://download.ceph.com/rpm-octopus/el7/$basearch"
+      enabled: true
+      priority: "2"
+      gpgcheck: true
+      gpgkey: "https://download.ceph.com/keys/release.asc"
+      state: "present"
+    - file: "ceph-noarch"
+      name: "ceph-noarch"
+      description: "Ceph noarch packages"
+      baseurl: "https://download.ceph.com/rpm-octopus/el7/noarch"
+      enabled: true
+      priority: "2"
+      gpgcheck: true
+      gpgkey: "https://download.ceph.com/keys/release.asc"
+      state: "present"
   nautilus:
     - file: "ceph"
       name: "ceph"
@@ -41,4 +60,7 @@ _yum_repository:
       state: "present"
 
 _yum:
-  - { state: "latest", name: "ceph-common" }
+  octopus:
+    - { state: "latest", name: "ceph-common" }
+  nautilus:
+    - { state: "latest", name: "ceph-common" }

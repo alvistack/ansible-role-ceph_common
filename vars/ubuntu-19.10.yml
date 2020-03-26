@@ -17,8 +17,11 @@
 _apt_key: []
 
 _apt_repository:
+  octopus: []
   nautilus: []
 
 _apt:
+  octopus:
+    - { state: "latest", name: "ceph-common" }
   nautilus:
     - { state: "latest", name: "ceph-common" }
