@@ -15,17 +15,17 @@
 # limitations under the License.
 
 _zypper_repository:
-  octopus:
+  "15.2":
     - name: "filesystems:ceph:octopus"
       repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/octopus/openSUSE_Leap_15.1/"
       state: "present"
-  nautilus:
+  "14.2":
     - name: "filesystems:ceph:nautilus"
       repo: "https://download.opensuse.org/repositories/filesystems:/ceph:/nautilus/openSUSE_Leap_15.1/"
       state: "present"
 
 _zypper:
-  octopus:
+  "15.2":
     - { state: "latest", name: "ceph-common" }
-  nautilus:
+  "14.2":
     - { state: "latest", name: "ceph-common" }

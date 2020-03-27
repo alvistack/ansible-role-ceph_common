@@ -20,15 +20,15 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  octopus:
+  "15.2":
     - repo: "deb https://download.ceph.com/debian-octopus bionic main"
       state: "present"
-  nautilus:
+  "14.2":
     - repo: "deb https://download.ceph.com/debian-nautilus bionic main"
       state: "present"
 
 _apt:
-  octopus:
+  "15.2":
     - { state: "latest", name: "ceph-common" }
-  nautilus:
+  "14.2":
     - { state: "latest", name: "ceph-common" }

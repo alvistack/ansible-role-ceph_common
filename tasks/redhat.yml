@@ -38,8 +38,10 @@
     name: "{{ item.name }}"
     description: "{{ item.description }}"
     baseurl: "{{ item.baseurl }}"
-    gpgcheck: "{{ item.gpgcheck }}"
-    enabled: "{{ item.enabled }}"
+    gpgkey: "{{ item.gpgkey }}"
+    gpgcheck: "{{ item.gpgcheck | default(true) }}"
+    enabled: "{{ item.enabled | default(true) }}"
+    priority: "{{ item.priority | default('2') }}"
     state: "{{ item.state }}"
   loop: "{{ _yum_repository[ceph_release] }}"
   tags: ceph_common
