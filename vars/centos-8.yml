@@ -1,0 +1,42 @@
+---
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_rpm_key:
+  - key: "https://download.ceph.com/keys/release.asc"
+    fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+    state: "present"
+
+_yum_repository:
+  "15.2":
+    - file: "ceph"
+      name: "ceph"
+      description: "Ceph packages for $basearch"
+      baseurl: "https://download.ceph.com/rpm-octopus/el8/$basearch"
+      gpgkey: "https://download.ceph.com/keys/release.asc"
+      state: "present"
+    - file: "ceph-noarch"
+      name: "ceph-noarch"
+      description: "Ceph noarch packages"
+      baseurl: "https://download.ceph.com/rpm-octopus/el8/noarch"
+      gpgkey: "https://download.ceph.com/keys/release.asc"
+      state: "present"
+  "14.2": []
+
+_yum:
+  "15.2":
+    - { state: "present", name: "https://download.fedoraproject.org/pub/epel/testing/8/Everything/x86_64/Packages/l/leveldb-1.22-1.el8.x86_64.rpm" }
+    - { state: "latest", name: "ceph-common" }
+  "14.2": []
