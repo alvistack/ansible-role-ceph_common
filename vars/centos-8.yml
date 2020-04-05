@@ -24,6 +24,5 @@ _yum_repository:
 
 _yum:
   "15.2":
-    - { state: "latest", name: "https://download.fedoraproject.org/pub/epel/testing/8/Everything/x86_64/Packages/l/leveldb-1.22-1.el8.x86_64.rpm" }
     - { state: "latest", name: "ceph-common" }
   "14.2": []
