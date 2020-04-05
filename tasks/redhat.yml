@@ -14,36 +14,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install gnupg2
+- name: yum install yum-utils
   yum:
-    name: "gnupg2"
+    name: "yum-utils"
     state: "present"
-  register: result
-  until: result is succeeded
-  tags: ceph_common
-
-- name: rpm --import
-  rpm_key:
-    key: "{{ item.key }}"
-    fingerprint: "{{ item.fingerprint }}"
-    state: "{{ item.state }}"
-  loop: "{{ _rpm_key }}"
-  register: result
-  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
   tags: ceph_common
 
 - name: yum-config-manager --add-repo
-  yum_repository:
-    file: "{{ item.file }}"
+  yum:
     name: "{{ item.name }}"
-    description: "{{ item.description }}"
-    baseurl: "{{ item.baseurl }}"
-    gpgkey: "{{ item.gpgkey }}"
-    gpgcheck: "{{ item.gpgcheck | default(true) }}"
-    enabled: "{{ item.enabled | default(true) }}"
-    priority: "{{ item.priority | default('2') }}"
     state: "{{ item.state }}"
   loop: "{{ _yum_repository[ceph_release] }}"
+  register: result
+  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
   tags: ceph_common
 
 - name: yum install

@@ -14,38 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key:
-  - key: "https://download.ceph.com/keys/release.asc"
-    fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-    state: "present"
-
 _yum_repository:
   "15.2":
-    - file: "ceph"
-      name: "ceph"
-      description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/$basearch"
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph-noarch"
-      name: "ceph-noarch"
-      description: "Ceph noarch packages"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/noarch"
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
+    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+      state: "latest"
+    - name: "https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm"
+      state: "latest"
   "14.2":
-    - file: "ceph"
-      name: "ceph"
-      description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/$basearch"
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph-noarch"
-      name: "ceph-noarch"
-      description: "Ceph noarch packages"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/noarch"
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
+    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+      state: "latest"
+    - name: "https://download.ceph.com/rpm-octopus/el7/noarch/ceph-release-1-1.el7.noarch.rpm"
+      state: "latest"
 
 _yum:
   "15.2":
