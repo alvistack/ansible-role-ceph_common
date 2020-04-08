@@ -22,6 +22,13 @@
   ignore_errors: true
   tags: ceph_common
 
+- name: yum-config-manager --enable
+  command: yum-config-manager --{{ item.state }} {{ item.name }}
+  loop: "{{ _yum_config_manager }}"
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
 - name: yum-config-manager --add-repo
   yum:
     name: "{{ item.name }}"
