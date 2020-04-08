@@ -20,8 +20,12 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb https://download.ceph.com/debian-{{ ceph_release }} xenial main"
-    state: "present"
+  "15.2": []
+  "14.2":
+    - repo: "deb https://download.ceph.com/debian-nautilus xenial main"
+      state: "present"
 
 _apt:
-  - { state: "latest", name: "ceph-common" }
+  "15.2": []
+  "14.2":
+    - { state: "latest", name: "ceph-common" }

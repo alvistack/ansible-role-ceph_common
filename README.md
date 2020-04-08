@@ -1,6 +1,6 @@
 # Ansible Role for Ceph Common
 
-[![Travis](https://img.shields.io/travis/alvistack/ansible-role-ceph_common.svg)](https://travis-ci.org/alvistack/ansible-role-ceph_common)
+[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-ceph_common.svg)](https://travis-ci.com/alvistack/ansible-role-ceph_common)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.ceph_common-blue.svg)](https://galaxy.ansible.com/alvistack/ceph_common)
@@ -11,7 +11,7 @@ Ansible Role for Ceph Common Installation.
 
 This role require Ansible 2.9 or higher.
 
-This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7 or openSUSE Leap 15.1.
+This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7/8 or openSUSE Leap 15.1.
 
 ## Role Variables
 
@@ -23,7 +23,7 @@ This role was designed for Ubuntu 16.04/18.04/19.10 or RHEL/CentOS 7 or openSUSE
 
 ## Example Playbook
 
-[molecule/ubuntu-18.04/playbook.yml](molecule/ubuntu-18.04/playbook.yml)
+[molecule/default/converge.yml](molecule/default/converge.yml)
 
 ## License
 

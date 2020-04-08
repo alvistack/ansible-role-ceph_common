@@ -14,15 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager:
-  - { state: "enable", name: "extras" }
+_yum_config_manager: []
 
 _rpm_repository:
   "15.2":
-    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       state: "latest"
   "14.2":
-    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       state: "latest"
 
 _rpm_key:
@@ -30,17 +29,14 @@ _rpm_key:
     - key: "https://download.ceph.com/keys/release.asc"
       fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
-  "14.2":
-    - key: "https://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
+  "14.2": []
 
 _yum_repository:
   "15.2":
     - file: "ceph"
       name: "ceph"
       description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/$basearch"
+      baseurl: "https://download.ceph.com/rpm-octopus/el8/$basearch"
       enabled: true
       priority: "2"
       gpgcheck: true
@@ -49,7 +45,7 @@ _yum_repository:
     - file: "ceph-noarch"
       name: "ceph-noarch"
       description: "Ceph noarch packages"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/noarch"
+      baseurl: "https://download.ceph.com/rpm-octopus/el8/noarch"
       enabled: true
       priority: "2"
       gpgcheck: true
@@ -59,24 +55,20 @@ _yum_repository:
     - file: "ceph"
       name: "ceph"
       description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/$basearch"
+      baseurl: "http://mirror.centos.org/centos/8/storage/$basearch/ceph-nautilus"
       enabled: true
       priority: "2"
       gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph-noarch"
-      name: "ceph-noarch"
-      description: "Ceph noarch packages"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/noarch"
-      enabled: true
-      priority: "2"
-      gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
       state: "present"
 
 _yum:
   "15.2":
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-cherrypy-8.9.1-8.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-logutils-0.3.5-11.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-simplegeneric-0.8.1-17.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-singledispatch-3.4.0.3-18.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-pecan-1.3.2-9.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/l/leveldb-1.20-1.el8.x86_64.rpm" }
     - { state: "latest", name: "ceph-common" }
   "14.2":
     - { state: "latest", name: "ceph-common" }
