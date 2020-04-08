@@ -61,7 +61,12 @@ _yum_repository:
 
 _yum:
   "15.2":
-    - { state: "latest", name: "https://download.fedoraproject.org/pub/epel/testing/8/Everything/x86_64/Packages/l/leveldb-1.22-1.el8.x86_64.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-cherrypy-8.9.1-8.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-logutils-0.3.5-11.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-simplegeneric-0.8.1-17.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-singledispatch-3.4.0.3-18.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/p/python3-pecan-1.3.2-9.el8.noarch.rpm" }
+    - { state: "latest", name: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus/Packages/l/leveldb-1.20-1.el8.x86_64.rpm" }
     - { state: "latest", name: "ceph-common" }
   "14.2":
     - { state: "latest", name: "ceph-common" }
