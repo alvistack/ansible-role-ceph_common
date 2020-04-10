@@ -39,9 +39,10 @@
   until: result is succeeded
   tags: ceph_common
 
-- name: symlink libceph-common.so.0
+- name: ln -fs /usr/lib64/ceph/libceph-common.so.0 /usr/lib64/libceph-common.so.0
   file:
     src: "/usr/lib64/ceph/libceph-common.so.0"
     dest: "/usr/lib64/libceph-common.so.0"
+    force: true
     state: link
   tags: ceph_common
