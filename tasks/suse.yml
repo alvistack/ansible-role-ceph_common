@@ -44,5 +44,5 @@
     src: "/usr/lib64/ceph/libceph-common.so.0"
     dest: "/usr/lib64/libceph-common.so.0"
     force: true
-    state: link
+    state: "link"
   tags: ceph_common
