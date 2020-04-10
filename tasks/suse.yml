@@ -39,10 +39,12 @@
   until: result is succeeded
   tags: ceph_common
 
-- name: ln -fs /usr/lib64/ceph/libceph-common.so.0 /usr/lib64/libceph-common.so.0
+- name: symlink files
   file:
-    src: "/usr/lib64/ceph/libceph-common.so.0"
-    dest: "/usr/lib64/libceph-common.so.0"
-    force: true
-    state: "link"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    force: "{{ item.force | default(true) }}"
+    state: "{{ item.state | default('link') }}"
+  loop:
+    - { src: "/usr/lib64/ceph/libceph-common.so.0", dest: "/usr/lib64/libceph-common.so.0" }
   tags: ceph_common
