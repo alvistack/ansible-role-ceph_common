@@ -15,8 +15,10 @@
 # limitations under the License.
 
 _yum_config_manager:
-  - { state: "enable", name: "rhel-7-server-extras-rpms" }
-  - { state: "enable", name: "rhel-7-server-optional-rpms" }
+  "15.2":
+    - { state: "enable", name: "rhel-7-server-extras-rpms" }
+  "14.2":
+    - { state: "enable", name: "rhel-7-server-optional-rpms" }
 
 _rpm_repository:
   "15.2":
@@ -40,8 +42,8 @@ _yum_repository:
   "15.2":
     - file: "ceph"
       name: "ceph"
-      description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/$basearch"
+      description: "Ceph packages for x86_64"
+      baseurl: "https://download.ceph.com/rpm-octopus/el7/x86_64"
       enabled: true
       priority: "2"
       gpgcheck: true
@@ -59,8 +61,8 @@ _yum_repository:
   "14.2":
     - file: "ceph"
       name: "ceph"
-      description: "Ceph packages for $basearch"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/$basearch"
+      description: "Ceph packages for x86_64"
+      baseurl: "https://download.ceph.com/rpm-nautilus/el7/x86_64"
       enabled: true
       priority: "2"
       gpgcheck: true

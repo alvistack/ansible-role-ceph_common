@@ -14,12 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_template:
-  "15.2":
-    - { dest: "/etc/apt/preferences.d/990-download.ceph.com.pref" }
-  "14.2":
-    - { dest: "/etc/apt/preferences.d/990-download.ceph.com.pref" }
-
 _apt_key:
   "15.2":
     - url: "https://download.ceph.com/keys/release.asc"
