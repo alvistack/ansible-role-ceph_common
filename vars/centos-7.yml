@@ -41,17 +41,17 @@ _rpm_key:
 _yum_repository:
   "15.2":
     - file: "ceph"
-      name: "ceph"
-      description: "Ceph packages for x86_64"
+      name: "ceph-octopus"
+      description: "Ceph Octopus packages for x86_64"
       baseurl: "https://download.ceph.com/rpm-octopus/el7/x86_64"
       enabled: true
       priority: "2"
       gpgcheck: true
       gpgkey: "https://download.ceph.com/keys/release.asc"
       state: "present"
-    - file: "ceph-noarch"
-      name: "ceph-noarch"
-      description: "Ceph noarch packages"
+    - file: "ceph"
+      name: "ceph-octopus-noarch"
+      description: "Ceph Octopus noarch packages"
       baseurl: "https://download.ceph.com/rpm-octopus/el7/noarch"
       enabled: true
       priority: "2"
@@ -60,17 +60,17 @@ _yum_repository:
       state: "present"
   "14.2":
     - file: "ceph"
-      name: "ceph"
-      description: "Ceph packages for x86_64"
+      name: "ceph-nautilus"
+      description: "Ceph Nautilus packages for x86_64"
       baseurl: "https://download.ceph.com/rpm-nautilus/el7/x86_64"
       enabled: true
       priority: "2"
       gpgcheck: true
       gpgkey: "https://download.ceph.com/keys/release.asc"
       state: "present"
-    - file: "ceph-noarch"
-      name: "ceph-noarch"
-      description: "Ceph noarch packages"
+    - file: "ceph"
+      name: "ceph-nautilus-noarch"
+      description: "Ceph Nautilus noarch packages"
       baseurl: "https://download.ceph.com/rpm-nautilus/el7/noarch"
       enabled: true
       priority: "2"
