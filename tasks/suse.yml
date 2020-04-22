@@ -25,6 +25,8 @@
     auto_import_keys: true
     autorefresh: true
   loop: "{{ _zypper_repository[ceph_release] }}"
+  register: result
+  until: result is succeeded
   tags: ceph_common
 
 - name: zypper install
@@ -37,14 +39,4 @@
   loop: "{{ _zypper[ceph_release] }}"
   register: result
   until: result is succeeded
-  tags: ceph_common
-
-- name: symlink files
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    force: "{{ item.force | default(true) }}"
-    state: "{{ item.state | default('link') }}"
-  loop:
-    - { src: "/usr/lib64/ceph/libceph-common.so.0", dest: "/usr/lib64/libceph-common.so.0" }
   tags: ceph_common

@@ -24,7 +24,7 @@
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
-  loop: "{{ _yum_config_manager }}"
+  loop: "{{ _yum_config_manager[ceph_release] }}"
   changed_when: false
   ignore_errors: true
   tags: ceph_common
