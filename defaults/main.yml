@@ -20,21 +20,23 @@ ceph_release: "15.2"
 # Ceph fsid.
 ceph_fsid: "{{ hostvars[ansible_play_hosts[0]].ansible_machine_id | to_uuid }}"
 
-# Ceph mon initial members.
+# Ceph Monitor initial members.
 ceph_mon_initial_members: >-
-  {%- set _params = [] -%}
+  {%- set _ns = namespace() -%}
+  {%- set _ns._params = [] -%}
   {%- for host in ansible_play_hosts -%}
-  {%-   set _params = _params.append(host) -%}
+  {%-   set _ns._params = _ns._params + [host] -%}
   {%- endfor -%}
-  {{ _params | join(',') }}
+  {{ _ns._params | join(',') }}
 
-# Ceph mon host.
+# Ceph Monitor host.
 ceph_mon_host: >-
-  {%- set _params = [] -%}
+  {%- set _ns = namespace() -%}
+  {%- set _ns._params = [] -%}
   {%- for host in ansible_play_hosts -%}
-  {%-   set _params = _params.append(hostvars[host].ansible_default_ipv4.address) -%}
+  {%-   set _ns._params = _ns._params + [hostvars[host].ansible_default_ipv4.address] -%}
   {%- endfor -%}
-  {{ _params | join(',') }}
+  {{ _ns._params | join(',') }}
 
 # Ceph public network.
 ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ipaddr('net') }}"
@@ -55,7 +57,7 @@ ceph_common_config:
   - { state: "present", section: "global", option: "auth service required", value: "cephx" }
   - { state: "present", section: "global", option: "auth client required", value: "cephx" }
   - { state: "present", section: "global", option: "osd pool default size", value: "1" }
-  - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
+  - { state: "present", section: "global", option: "osd pool default min size", value: "0" }
   - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
   - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }
   - { state: "present", section: "global", option: "osd pool default pg autoscale mode", value: "on" }

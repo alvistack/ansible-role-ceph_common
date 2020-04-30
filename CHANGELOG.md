@@ -4,6 +4,8 @@
 
 ### Major Changes
 
+  - Discovery device for OSD from `ansible_devices`
+  - Template complex variable with Jinja `namespace()`
   - `molecule -s default` with delegated to localhost
 
 ## 4.3.0 - 2020-04-22
