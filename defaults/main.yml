@@ -20,7 +20,7 @@ ceph_release: "15.2"
 # Ceph fsid.
 ceph_fsid: "{{ hostvars[ansible_play_hosts[0]].ansible_machine_id | to_uuid }}"
 
-# Ceph mon initial members.
+# Ceph Monitor initial members.
 ceph_mon_initial_members: >-
   {%- set _ns = namespace() -%}
   {%- set _ns._params = [] -%}
@@ -29,7 +29,7 @@ ceph_mon_initial_members: >-
   {%- endfor -%}
   {{ _ns._params | join(',') }}
 
-# Ceph mon host.
+# Ceph Monitor host.
 ceph_mon_host: >-
   {%- set _ns = namespace() -%}
   {%- set _ns._params = [] -%}
