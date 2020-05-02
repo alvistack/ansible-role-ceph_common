@@ -1,0 +1,39 @@
+---
+
+# (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_apt_key:
+  "15.2":
+    - url: "https://download.ceph.com/keys/release.asc"
+      id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
+  "14.2":
+    - url: "https://download.ceph.com/keys/release.asc"
+      id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
+
+_apt_repository:
+  "15.2":
+    - repo: "deb https://download.ceph.com/debian-octopus buster main"
+      state: "present"
+  "14.2":
+    - repo: "deb https://download.ceph.com/debian-nautilus buster main"
+      state: "present"
+
+_apt:
+  "15.2":
+    - { state: "latest", name: "ceph-common" }
+  "14.2":
+    - { state: "latest", name: "ceph-common" }
