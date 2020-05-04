@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Support Debian 10
   - Discovery device for OSD from `ansible_devices`
   - Template complex variable with Jinja `namespace()`
   - `molecule -s default` with delegated to localhost
