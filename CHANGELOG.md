@@ -4,7 +4,7 @@
 
 ### Major Changes
 
-  - Support Fedora 31
+  - Support Fedora 32
   - Support Debian 10
   - Discovery device for OSD from `ansible_devices`
   - Template complex variable with Jinja `namespace()`
