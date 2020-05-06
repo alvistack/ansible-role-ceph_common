@@ -31,6 +31,6 @@ _yum_repository:
   "14.2": []
 
 _yum:
-  "15.2":
+  "15.2": []
+  "14.2":
     - { state: "latest", name: "ceph-common" }
-  "14.2": []
