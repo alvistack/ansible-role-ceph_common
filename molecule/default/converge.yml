@@ -20,3 +20,4 @@
   tasks:
     - include_role:
         name: ceph_common
+      tags: ceph_common
