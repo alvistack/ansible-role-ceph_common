@@ -17,16 +17,13 @@
 _yum_config_manager:
   "15.2":
     - { state: "enable", name: "extras" }
-  "14.2":
-    - { state: "enable", name: "extras" }
+  "14.2": []
 
 _rpm_repository:
   "15.2":
     - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       state: "latest"
-  "14.2":
-    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-      state: "latest"
+  "14.2": []
 
 _rpm_key:
   "15.2":
@@ -63,18 +60,9 @@ _yum_repository:
       priority: "2"
       gpgcheck: true
       state: "present"
-  "14.2":
-    - file: "ceph"
-      name: "ceph-nautilus"
-      description: "Ceph Nautilus packages for x86_64"
-      baseurl: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus"
-      enabled: true
-      priority: "2"
-      gpgcheck: true
-      state: "present"
+  "14.2": []
 
 _yum:
   "15.2":
     - { state: "latest", name: "ceph-common" }
-  "14.2":
-    - { state: "latest", name: "ceph-common" }
+  "14.2": []
