@@ -75,8 +75,8 @@
   ini_file:
     path: "/etc/ceph/ceph.conf"
     section: "{{ item.section }}"
-    option: "{{ item.option | default(None) or omit }}"
-    value: "{{ item.value | default(None) or omit }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('present') }}"
   loop: "{{ ceph_common_config }}"
