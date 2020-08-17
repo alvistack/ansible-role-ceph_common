@@ -73,21 +73,21 @@
 
 - name: tweak settings in ini files
   ini_file:
-    path: "/etc/ceph/ceph.conf"
     section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
-    mode: "{{ item.mode | default('0644') }}"
-    state: "{{ item.state | default('present') }}"
+    state: "{{ item.state }}"
+    path: "/etc/ceph/ceph.conf"
+    mode: "0644"
   loop: "{{ ceph_common_config }}"
   tags: ceph_common
 
 - name: tweak sysctl entries
   sysctl:
-    sysctl_file: "/etc/sysctl.conf"
     name: "{{ item.name }}"
     value: "{{ item.value }}"
-    state: "{{ item.state | default('present') }}"
+    state: "{{ item.state }}"
+    sysctl_file: "/etc/sysctl.conf"
     reload: false
   loop: "{{ ceph_sysctl }}"
   notify:
