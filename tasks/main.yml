@@ -57,6 +57,7 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/ceph" }
+    - { dest: "/lib/systemd/system/ceph.target.d" }
   tags: ceph_common
 
 - name: touch files
