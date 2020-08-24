@@ -118,7 +118,7 @@
     mode: "{{ item.mode | default('0644') }}"
     state: "{{ item.state | default('file') }}"
   loop:
-    - { dest: "/etc/ceph/ceph.conf" }
+    - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
     - { dest: "/lib/systemd/system/cephfs-umount.service" }
     - { dest: "/lib/systemd/system/rbdmap.service" }
   tags: ceph_common
