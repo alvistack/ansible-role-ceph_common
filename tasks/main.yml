@@ -105,7 +105,7 @@
     mode: "{{ item.mode | default('0644') }}"
   loop:
     - { dest: "/lib/systemd/system/ceph.target" }
-    - { dest: "/lib/systemd/system/mount-ceph.service" }
+    - { dest: "/lib/systemd/system/cephfs-umount.service" }
     - { dest: "/lib/systemd/system/rbdmap.service" }
   notify:
     - ceph_common | systemctl daemon-reload
@@ -121,9 +121,9 @@
   loop:
     - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
     - { dest: "/lib/systemd/system/ceph.target" }
-    - { dest: "/lib/systemd/system/mount-ceph.service" }
+    - { dest: "/lib/systemd/system/cephfs-umount.service"}
+    - { dest: "/lib/systemd/system/mount-ceph.service", state: "absent" }
     - { dest: "/lib/systemd/system/rbdmap.service" }
-    - { dest: "/lib/systemd/system/cephfs-umount.service", state: "absent" }
   tags: ceph_common
 
 - name: systemctl start ceph.target
@@ -135,18 +135,18 @@
   ignore_errors: true
   tags: ceph_common
 
-- name: systemctl start mount-ceph
+- name: systemctl start cephfs-umount.service
   service:
-    name: "mount-ceph"
+    name: "cephfs-umount.service"
     state: "started"
     enabled: true
   changed_when: false
   ignore_errors: true
   tags: ceph_common
 
-- name: systemctl start rbdmap
+- name: systemctl start rbdmap.service
   service:
-    name: "rbdmap"
+    name: "rbdmap.service"
     state: "started"
     enabled: true
   changed_when: false

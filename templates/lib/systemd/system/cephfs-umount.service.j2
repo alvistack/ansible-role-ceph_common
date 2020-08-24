@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Unmount CephFS
+After=network-online.target remote-fs.target ceph.target
+Wants=network-online.target remote-fs.target ceph.target
+
+[Service]
+EnvironmentFile=-/etc/default/ceph
+Type=oneshot
+RemainAfterExit=yes
+ExecStop=/usr/bin/umount -lf -a -t ceph
+
+[Install]
+WantedBy=multi-user.target
