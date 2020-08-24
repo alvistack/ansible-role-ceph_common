@@ -123,6 +123,7 @@
     - { dest: "/lib/systemd/system/ceph.target" }
     - { dest: "/lib/systemd/system/mount-ceph.service" }
     - { dest: "/lib/systemd/system/rbdmap.service" }
+    - { dest: "/lib/systemd/system/cephfs-umount.service", state: "absent" }
   tags: ceph_common
 
 - name: systemctl start ceph.target
