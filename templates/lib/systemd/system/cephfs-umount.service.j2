@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 [Unit]
-Description=Unmount CephFS
+Description=Unmount CephFS before shutting down the system
 After=network-online.target remote-fs.target ceph.target
 Wants=network-online.target remote-fs.target ceph.target
 
