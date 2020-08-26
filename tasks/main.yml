@@ -57,6 +57,8 @@
     state: "{{ item.state | default('directory') }}"
   loop:
     - { dest: "/etc/ceph" }
+    - { dest: "/lib/systemd/system" }
+    - { dest: "/lib/systemd/system/ceph.target.d" }
   tags: ceph_common
 
 - name: touch files
@@ -92,6 +94,63 @@
   loop: "{{ ceph_sysctl }}"
   notify:
     - ceph_common | sysctl --system
+  tags: ceph_common
+
+- name: copy templates
+  template:
+    dest: "{{ item.dest }}"
+    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+  loop:
+    - { dest: "/lib/systemd/system/ceph.target" }
+    - { dest: "/lib/systemd/system/cephfs-umount.service" }
+    - { dest: "/lib/systemd/system/rbdmap.service" }
+  notify:
+    - ceph_common | systemctl daemon-reload
+  tags: ceph_common
+
+- name: prepare files
+  file:
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0644') }}"
+    state: "{{ item.state | default('file') }}"
+  loop:
+    - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
+    - { dest: "/lib/systemd/system/ceph.target" }
+    - { dest: "/lib/systemd/system/cephfs-umount.service"}
+    - { dest: "/lib/systemd/system/mount-ceph.service", state: "absent" }
+    - { dest: "/lib/systemd/system/rbdmap.service" }
+  tags: ceph_common
+
+- name: systemctl start ceph.target
+  service:
+    name: "ceph.target"
+    state: "started"
+    enabled: true
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
+- name: systemctl start cephfs-umount.service
+  service:
+    name: "cephfs-umount.service"
+    state: "started"
+    enabled: true
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
+- name: systemctl start rbdmap.service
+  service:
+    name: "rbdmap.service"
+    state: "started"
+    enabled: true
+  changed_when: false
+  ignore_errors: true
   tags: ceph_common
 
 - name: flush handlers

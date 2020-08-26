@@ -52,14 +52,6 @@ _yum_repository:
       gpgcheck: true
       gpgkey: "https://download.ceph.com/keys/release.asc"
       state: "present"
-    - file: "ceph"
-      name: "ceph-nautilus"
-      description: "Ceph Nautilus packages for x86_64"
-      baseurl: "http://mirror.centos.org/centos/8/storage/x86_64/ceph-nautilus"
-      enabled: true
-      priority: "2"
-      gpgcheck: true
-      state: "present"
   "14.2": []
 
 _yum:
