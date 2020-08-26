@@ -7,7 +7,6 @@
   - Attach/Detach RBD or CephFS after/before `ceph.target` during startup/shutdown
   - Upgrade Travis CI test as Ubuntu Focal based
   - Upgrade minimal Ansible support to 2.10.0
-  - Disable IPv6 with `sysctl`
   - Support openSUSE Leap 15.2
   - Remove Ubuntu 19.10 support
 
