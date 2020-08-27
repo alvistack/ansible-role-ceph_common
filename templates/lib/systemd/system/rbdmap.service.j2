@@ -4,6 +4,7 @@
 Description=Map RBD devices
 After=network-online.target ceph.target
 Before=remote-fs-pre.target
+Wants=network-online.target remote-fs-pre.target ceph.target
 
 [Service]
 EnvironmentFile=-/etc/default/ceph
@@ -15,4 +16,4 @@ ExecReload=/usr/bin/rbdmap map
 ExecStop=/usr/bin/rbdmap unmap-all
 
 [Install]
-WantedBy=multi-user.target ceph.target
+WantedBy=multi-user.target

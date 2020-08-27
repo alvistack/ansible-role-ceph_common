@@ -135,6 +135,24 @@
   ignore_errors: true
   tags: ceph_common
 
+- name: systemctl start cephfs-umount.service
+  service:
+    name: "cephfs-umount.service"
+    state: "started"
+    enabled: true
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
+- name: systemctl start rbdmap.service
+  service:
+    name: "rbdmap.service"
+    state: "started"
+    enabled: true
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
 - name: flush handlers
   meta: flush_handlers
   tags: ceph_common
