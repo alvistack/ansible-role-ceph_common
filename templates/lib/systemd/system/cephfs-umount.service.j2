@@ -3,7 +3,6 @@
 [Unit]
 Description=Unmount CephFS before shutting down the system
 After=network-online.target ceph.target remote-fs.target
-Wants=network-online.target ceph.target remote-fs.target
 
 [Service]
 EnvironmentFile=-/etc/default/ceph
@@ -12,4 +11,4 @@ RemainAfterExit=yes
 ExecStop=/usr/bin/umount -lf -a -t ceph
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target ceph.target
