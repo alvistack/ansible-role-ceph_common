@@ -2,9 +2,10 @@
 
 [Unit]
 Description=ceph target allowing to start/stop all ceph*@.service instances at once
-After=network-online.target
+After=network-online.target time-sync.target
 Before=remote-fs-pre.target
-Wants=network-online.target remote-fs-pre.target
+Wants=network-online.target time-sync.target remote-fs-pre.target
+RequiresMountsFor=/var/lib/ceph
 
 [Install]
 WantedBy=multi-user.target
