@@ -2,8 +2,9 @@
 
 [Unit]
 Description=Unmount CephFS before shutting down the system
-After=network-online.target remote-fs.target ceph.target
-Wants=network-online.target remote-fs.target ceph.target
+After=network-online.target ceph.target
+Before=remote-fs-pre.target
+Wants=network-online.target remote-fs-pre.target ceph.target
 
 [Service]
 EnvironmentFile=-/etc/default/ceph
