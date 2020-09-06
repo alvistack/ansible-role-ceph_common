@@ -27,7 +27,7 @@
     key: "{{ item.key }}"
     fingerprint: "{{ item.fingerprint }}"
     state: "{{ item.state }}"
-  loop: "{{ _rpm_key }}"
+  loop: "{{ _rpm_key[ceph_release] }}"
   register: result
   until: result is succeeded
   tags: ceph_common
