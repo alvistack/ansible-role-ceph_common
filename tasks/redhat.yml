@@ -14,31 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install yum-utils
+- name: yum install gnupg2
   yum:
-    name: "yum-utils"
+    name: "gnupg2"
     state: "present"
-  changed_when: false
-  ignore_errors: true
-  tags: ceph_common
-
-- name: yum-config-manager --enable
-  command: yum-config-manager --{{ item.state }} {{ item.name }}
-  loop: "{{ _yum_config_manager[ceph_release] }}"
-  changed_when: false
-  ignore_errors: true
-  tags: ceph_common
-
-- name: yum-config-manager --add-repo
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-    disable_gpg_check: true
-  loop: "{{ _rpm_repository[ceph_release] }}"
   register: result
   until: result is succeeded
-  changed_when: false
-  ignore_errors: true
   tags: ceph_common
 
 - name: rpm --import
@@ -46,9 +27,35 @@
     key: "{{ item.key }}"
     fingerprint: "{{ item.fingerprint }}"
     state: "{{ item.state }}"
-  loop: "{{ _rpm_key[ceph_release] }}"
+  loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
+  tags: ceph_common
+
+- name: yum-config-manager --add-repo
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_repository[ceph_release] }}"
+  register: result
+  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
+  tags: ceph_common
+
+- name: yum install yum-utils
+  yum:
+    name: "yum-utils"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: ceph_common
+
+- name: yum-config-manager --enable
+  command: yum-config-manager --{{ item.state }} {{ item.name }}
+  loop: "{{ _yum_config_manager[ceph_release] }}"
+  changed_when: false
+  ignore_errors: true
   tags: ceph_common
 
 - name: yum-config-manager --add-repo

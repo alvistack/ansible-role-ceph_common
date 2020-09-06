@@ -14,8 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager: 
-  "15.2": []
+_rpm_key:
+  "15.2":
+    - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
+      fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
+      state: "present"
+    - key: "https://download.ceph.com/keys/release.asc"
+      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
   "14.2": []
 
 _rpm_repository:
@@ -24,11 +30,8 @@ _rpm_repository:
       state: "latest"
   "14.2": []
 
-_rpm_key:
-  "15.2":
-    - key: "https://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
+_yum_config_manager: 
+  "15.2": []
   "14.2": []
 
 _yum_repository:
