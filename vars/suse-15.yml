@@ -26,8 +26,6 @@ _zypper_repository:
 
 _zypper:
   "15.2":
-    - { state: "latest", name: "procps" }
     - { state: "latest", name: "ceph-common" }
   "14.2":
-    - { state: "latest", name: "procps" }
     - { state: "latest", name: "ceph-common" }

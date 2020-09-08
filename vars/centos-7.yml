@@ -86,8 +86,6 @@ _yum_repository:
 
 _yum:
   "15.2":
-    - { state: "latest", name: "procps-ng" }
     - { state: "latest", name: "ceph-common" }
   "14.2":
-    - { state: "latest", name: "procps-ng" }
     - { state: "latest", name: "ceph-common" }
