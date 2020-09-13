@@ -59,15 +59,3 @@
   register: result
   until: result is succeeded
   tags: ceph_common
-
-- name: tweak sysctl entries
-  sysctl:
-    name: "{{ item.name }}"
-    value: "{{ item.value }}"
-    state: "{{ item.state }}"
-    sysctl_file: "/etc/sysctl.conf"
-    reload: false
-  loop: "{{ ceph_sysctl }}"
-  notify:
-    - ceph_common | sysctl --system
-  tags: ceph_common
