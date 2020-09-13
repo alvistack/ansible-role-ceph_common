@@ -14,11 +14,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager:
+_rpm_key:
   "15.2":
-    - { state: "enable", name: "extras" }
+    - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
+      fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
+      state: "present"
+    - key: "https://download.ceph.com/keys/release.asc"
+      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
   "14.2":
-    - { state: "enable", name: "extras" }
+    - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
+      fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
+      state: "present"
+    - key: "https://download.ceph.com/keys/release.asc"
+      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
 
 _rpm_repository:
   "15.2":
@@ -28,15 +38,11 @@ _rpm_repository:
     - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
       state: "latest"
 
-_rpm_key:
+_yum_config_manager:
   "15.2":
-    - key: "https://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
+    - { state: "enable", name: "extras" }
   "14.2":
-    - key: "https://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
+    - { state: "enable", name: "extras" }
 
 _yum_repository:
   "15.2":

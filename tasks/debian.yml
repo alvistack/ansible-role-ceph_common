@@ -51,3 +51,11 @@
   register: result
   until: result is succeeded
   tags: ceph_common
+
+- name: apt-get install procps
+  apt:
+    name: "procps"
+    state: "present"
+  register: result
+  until: result is succeeded
+  tags: ceph_common

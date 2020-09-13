@@ -14,19 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install yum-utils
+- name: yum install gnupg2
   yum:
-    name: "yum-utils"
+    name: "gnupg2"
     state: "present"
-  changed_when: false
-  ignore_errors: true
+  register: result
+  until: result is succeeded
   tags: ceph_common
 
-- name: yum-config-manager --enable
-  command: yum-config-manager --{{ item.state }} {{ item.name }}
-  loop: "{{ _yum_config_manager[ceph_release] }}"
-  changed_when: false
-  ignore_errors: true
+- name: rpm --import
+  rpm_key:
+    key: "{{ item.key }}"
+    fingerprint: "{{ item.fingerprint }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_key[ceph_release] }}"
+  register: result
+  until: result is succeeded
   tags: ceph_common
 
 - name: yum-config-manager --add-repo
@@ -40,14 +43,19 @@
   ignore_errors: true
   tags: ceph_common
 
-- name: rpm --import
-  rpm_key:
-    key: "{{ item.key }}"
-    fingerprint: "{{ item.fingerprint }}"
-    state: "{{ item.state }}"
-  loop: "{{ _rpm_key[ceph_release] }}"
+- name: yum install yum-utils
+  yum:
+    name: "yum-utils"
+    state: "present"
   register: result
   until: result is succeeded
+  tags: ceph_common
+
+- name: yum-config-manager --enable
+  command: yum-config-manager --{{ item.state }} {{ item.name }}
+  loop: "{{ _yum_config_manager[ceph_release] }}"
+  changed_when: false
+  ignore_errors: true
   tags: ceph_common
 
 - name: yum-config-manager --add-repo
@@ -69,6 +77,14 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   loop: "{{ _yum[ceph_release] }}"
+  register: result
+  until: result is succeeded
+  tags: ceph_common
+
+- name: yum install procps-ng
+  yum:
+    name: "procps-ng"
+    state: "present"
   register: result
   until: result is succeeded
   tags: ceph_common

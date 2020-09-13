@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_yum_config_manager:
+_rpm_key:
   "15.2": []
   "14.2": []
 
@@ -22,7 +22,7 @@ _rpm_repository:
   "15.2": []
   "14.2": []
 
-_rpm_key:
+_yum_config_manager:
   "15.2": []
   "14.2": []
 
