@@ -24,3 +24,25 @@
     daemon_reload: true
   changed_when: false
   ignore_errors: true
+
+- name: ceph_common | systemctl restart ceph.target
+  service:
+    name: "ceph.target"
+    state: "restarted"
+    enabled: true
+  loop: "{{ ansible_play_hosts }}"
+  delegate_to: "{{ item }}"
+  run_once: true
+  changed_when: false
+  ignore_errors: true
+
+- name: ceph_common | systemctl restart rbdmap.service
+  service:
+    name: "rbdmap.service"
+    state: "restarted"
+    enabled: true
+  loop: "{{ ansible_play_hosts }}"
+  delegate_to: "{{ item }}"
+  run_once: true
+  changed_when: false
+  ignore_errors: true

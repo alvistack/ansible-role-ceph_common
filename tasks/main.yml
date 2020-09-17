@@ -108,6 +108,8 @@
     - { dest: "/lib/systemd/system/rbdmap.service" }
   notify:
     - ceph_common | systemctl daemon-reload
+    - ceph_common | systemctl restart ceph.target
+    - ceph_common | systemctl restart rbdmap.service
   tags: ceph_common
 
 - name: prepare files
@@ -123,6 +125,10 @@
     - { dest: "/lib/systemd/system/cephfs-umount.service", state: "absent" }
     - { dest: "/lib/systemd/system/mount-ceph.service", state: "absent" }
     - { dest: "/lib/systemd/system/rbdmap.service" }
+  notify:
+    - ceph_common | systemctl daemon-reload
+    - ceph_common | systemctl restart ceph.target
+    - ceph_common | systemctl restart rbdmap.service
   tags: ceph_common
 
 - name: systemctl start ceph.target
