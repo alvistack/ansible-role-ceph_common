@@ -122,6 +122,9 @@
     - ceph_common | systemctl restart ceph.target
     - ceph_common | systemctl restart rbdmap.service
 
+- name: flush handlers
+  meta: flush_handlers
+
 - name: systemctl start ceph.target
   service:
     name: "ceph.target"
@@ -137,6 +140,3 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-
-- name: flush handlers
-  meta: flush_handlers
