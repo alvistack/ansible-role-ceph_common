@@ -16,7 +16,6 @@
 
 - name: include default variables
   include_vars: "../vars/main.yml"
-  tags: ceph_common
 
 - name: include release specific variables
   include_vars: "{{ lookup('first_found', _params) }}"
@@ -31,7 +30,6 @@
       paths:
         - "../vars"
   ignore_errors: true
-  tags: ceph_common
 
 - name: include release specific tasks
   include_tasks: "{{ lookup('first_found', _params) }}"
@@ -46,7 +44,6 @@
       paths:
         - "."
   ignore_errors: true
-  tags: ceph_common
 
 - name: prepare directories
   file:
@@ -59,7 +56,6 @@
     - { dest: "/etc/ceph" }
     - { dest: "/lib/systemd/system" }
     - { dest: "/lib/systemd/system/ceph.target.d" }
-  tags: ceph_common
 
 - name: touch files
   copy:
@@ -71,7 +67,6 @@
     force: false
   loop:
     - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
-  tags: ceph_common
 
 - name: tweak settings in ini files
   ini_file:
@@ -82,7 +77,6 @@
     path: "/etc/ceph/ceph.conf"
     mode: "0644"
   loop: "{{ ceph_common_config }}"
-  tags: ceph_common
 
 - name: tweak sysctl entries
   sysctl:
@@ -94,7 +88,6 @@
   loop: "{{ ceph_sysctl }}"
   notify:
     - ceph_common | sysctl --system
-  tags: ceph_common
 
 - name: copy templates
   template:
@@ -110,7 +103,6 @@
     - ceph_common | systemctl daemon-reload
     - ceph_common | systemctl restart ceph.target
     - ceph_common | systemctl restart rbdmap.service
-  tags: ceph_common
 
 - name: prepare files
   file:
@@ -129,7 +121,9 @@
     - ceph_common | systemctl daemon-reload
     - ceph_common | systemctl restart ceph.target
     - ceph_common | systemctl restart rbdmap.service
-  tags: ceph_common
+
+- name: flush handlers
+  meta: flush_handlers
 
 - name: systemctl start ceph.target
   service:
@@ -138,7 +132,6 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-  tags: ceph_common
 
 - name: systemctl start rbdmap.service
   service:
@@ -147,8 +140,3 @@
     enabled: true
   changed_when: false
   ignore_errors: true
-  tags: ceph_common
-
-- name: flush handlers
-  meta: flush_handlers
-  tags: ceph_common

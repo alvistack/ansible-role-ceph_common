@@ -22,7 +22,6 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: ceph_common
 
 - name: zypper addrepo
   vars:
@@ -37,7 +36,6 @@
   loop: "{{ _zypper_repository[ceph_release] }}"
   register: result
   until: result is succeeded
-  tags: ceph_common
 
 - name: zypper install
   vars:
@@ -49,7 +47,6 @@
   loop: "{{ _zypper[ceph_release] }}"
   register: result
   until: result is succeeded
-  tags: ceph_common
 
 - name: zypper install procps
   vars:
@@ -59,4 +56,3 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: ceph_common
