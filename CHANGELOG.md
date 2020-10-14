@@ -4,6 +4,7 @@
 
 ### Major Changes
 
+  - Remove redundant tags from tasks
   - Import Yum repo GPG key manually
   - Bugfix graceful shutdown deadlock due to systemd dependencies
 
