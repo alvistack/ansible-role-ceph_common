@@ -1,6 +1,6 @@
 # Ansible Role for Ceph Common
 
-[![Travis](https://img.shields.io/travis/com/alvistack/ansible-role-ceph_common.svg)](https://travis-ci.com/alvistack/ansible-role-ceph_common)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/alvistack/ansible-role-ceph_common/master)](https://gitlab.com/alvistack/ansible-role-ceph_common/-/pipelines)
 [![GitHub release](https://img.shields.io/github/release/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common/releases)
 [![GitHub license](https://img.shields.io/github/license/alvistack/ansible-role-ceph_common.svg)](https://github.com/alvistack/ansible-role-ceph_common/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/badge/galaxy-alvistack.ceph_common-blue.svg)](https://galaxy.ansible.com/alvistack/ceph_common)
