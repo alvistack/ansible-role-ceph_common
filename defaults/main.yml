@@ -18,13 +18,13 @@
 ceph_release: "15.2"
 
 # Ceph fsid.
-ceph_fsid: "{{ hostvars[ansible_play_hosts[0]].ansible_machine_id | to_uuid }}"
+ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_machine_id | to_uuid }}"
 
 # Ceph Monitor initial members.
 ceph_mon_initial_members: >-
   {%- set _ns = namespace() -%}
   {%- set _ns._params = [] -%}
-  {%- for host in ansible_play_hosts -%}
+  {%- for host in groups['ceph_mon'] -%}
   {%-   set _ns._params = _ns._params + [host] -%}
   {%- endfor -%}
   {{ _ns._params | join(',') }}
@@ -33,7 +33,7 @@ ceph_mon_initial_members: >-
 ceph_mon_host: >-
   {%- set _ns = namespace() -%}
   {%- set _ns._params = [] -%}
-  {%- for host in ansible_play_hosts -%}
+  {%- for host in groups['ceph_mon'] -%}
   {%-   set _ns._params = _ns._params + [hostvars[host].ansible_default_ipv4.address] -%}
   {%- endfor -%}
   {{ _ns._params | join(',') }}
