@@ -22,27 +22,15 @@ _rpm_key:
     - key: "https://download.ceph.com/keys/release.asc"
       fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
-  "14.2":
-    - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
-      fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
-      state: "present"
-    - key: "https://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
 
 _rpm_repository:
   "15.2":
-    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
-      state: "latest"
-  "14.2":
     - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
       state: "latest"
 
 _yum_config_manager:
   "15.2":
     - { state: "enable", name: "rhel-7-server-extras-rpms" }
-  "14.2":
-    - { state: "enable", name: "rhel-7-server-optional-rpms" }
 
 _yum_repository:
   "15.2":
@@ -64,30 +52,8 @@ _yum_repository:
       gpgcheck: true
       gpgkey: "https://download.ceph.com/keys/release.asc"
       state: "present"
-  "14.2":
-    - file: "ceph"
-      name: "ceph-nautilus"
-      description: "Ceph Nautilus packages for x86_64"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/x86_64"
-      enabled: true
-      priority: "2"
-      gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph"
-      name: "ceph-nautilus-noarch"
-      description: "Ceph Nautilus noarch packages"
-      baseurl: "https://download.ceph.com/rpm-nautilus/el7/noarch"
-      enabled: true
-      priority: "2"
-      gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
-      state: "present"
 
 _yum:
   "15.2":
-    - { state: "latest", name: "ceph-base" }
-    - { state: "latest", name: "ceph-common" }
-  "14.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
