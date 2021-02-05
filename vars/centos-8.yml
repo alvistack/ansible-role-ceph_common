@@ -23,10 +23,11 @@ _rpm_key:
       fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
 
-_rpm_repository:
+_rpm_download:
   "15.2":
-    - name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-      state: "latest"
+    - url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+      dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
+      checksum: "sha256:74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
 
 _yum_config_manager:
   "15.2":
@@ -55,5 +56,6 @@ _yum_repository:
 
 _yum:
   "15.2":
+    - { state: "latest", name: "tar" }
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }

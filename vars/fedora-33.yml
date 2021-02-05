@@ -17,7 +17,7 @@
 _rpm_key:
   "15.2": []
 
-_rpm_repository:
+_rpm_download:
   "15.2": []
 
 _yum_config_manager:
@@ -28,5 +28,6 @@ _yum_repository:
 
 _yum:
   "15.2":
+    - { state: "latest", name: "tar" }
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
