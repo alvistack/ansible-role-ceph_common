@@ -16,13 +16,13 @@
 
 _apt_key:
   "15.2":
-    - url: "https://download.ceph.com/keys/release.asc"
+    - url: "http://download.ceph.com/keys/release.asc"
       id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
 
 _apt_repository:
   "15.2":
-    - repo: "deb https://download.ceph.com/debian-octopus bionic main"
+    - repo: "deb http://download.ceph.com/debian-octopus bionic main"
       state: "present"
 
 _apt:
