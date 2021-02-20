@@ -16,16 +16,16 @@
 
 _rpm_key:
   "15.2":
-    - key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
+    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
       fingerprint: "91E97D7C4A5E96F17F3E888F6A2FAEA2352C64E5"
       state: "present"
-    - key: "https://download.ceph.com/keys/release.asc"
+    - key: "http://download.ceph.com/keys/release.asc"
       fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
 
 _rpm_download:
   "15.2":
-    - url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
       dest: "/var/cache/ansible/46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed/epel-release-latest-7.noarch.rpm"
       checksum: "sha256:46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed"
 
@@ -38,20 +38,20 @@ _yum_repository:
     - file: "ceph"
       name: "ceph-octopus"
       description: "Ceph Octopus packages for x86_64"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/x86_64"
+      baseurl: "http://download.ceph.com/rpm-octopus/el7/x86_64"
       enabled: true
       priority: "2"
       gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
+      gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
     - file: "ceph"
       name: "ceph-octopus-noarch"
       description: "Ceph Octopus noarch packages"
-      baseurl: "https://download.ceph.com/rpm-octopus/el7/noarch"
+      baseurl: "http://download.ceph.com/rpm-octopus/el7/noarch"
       enabled: true
       priority: "2"
       gpgcheck: true
-      gpgkey: "https://download.ceph.com/keys/release.asc"
+      gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
 
 _yum:
