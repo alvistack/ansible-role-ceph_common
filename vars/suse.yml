@@ -22,6 +22,5 @@ _zypper_repository:
 
 _zypper:
   "15.2":
-    - { state: "latest", name: "tar" }
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
