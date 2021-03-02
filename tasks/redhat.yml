@@ -14,13 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install gnupg2
-  yum:
-    name: "gnupg2"
-    state: "present"
-  register: result
-  until: result is succeeded
-
 - name: rpm --import
   rpm_key:
     key: "{{ item.key }}"
@@ -63,13 +56,8 @@
     executable: "/bin/bash"
     creates: "{{ item.dest }}.log"
   loop: "{{ _rpm_download[ceph_release] }}"
-
-- name: yum install yum-utils
-  yum:
-    name: "yum-utils"
-    state: "present"
-  register: result
-  until: result is succeeded
+  changed_when: false
+  ignore_errors: true
 
 - name: yum-config-manager --enable
   command: yum-config-manager --{{ item.state }} {{ item.name }}
@@ -95,12 +83,5 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   loop: "{{ _yum[ceph_release] }}"
-  register: result
-  until: result is succeeded
-
-- name: yum install procps-ng
-  yum:
-    name: "procps-ng"
-    state: "present"
   register: result
   until: result is succeeded

@@ -14,13 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: apt-get install gnupg
-  apt:
-    name: "gnupg"
-    state: "present"
-  register: result
-  until: result is succeeded
-
 - name: apt-key add
   apt_key:
     url: "{{ item.url }}"
@@ -45,12 +38,5 @@
     state: "{{ item.state }}"
     install_recommends: false
   loop: "{{ _apt[ceph_release] }}"
-  register: result
-  until: result is succeeded
-
-- name: apt-get install procps
-  apt:
-    name: "procps"
-    state: "present"
   register: result
   until: result is succeeded
