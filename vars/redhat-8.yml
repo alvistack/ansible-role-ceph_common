@@ -48,7 +48,7 @@ _yum_repository:
   "16.2":
     - file: "ceph"
       name: "ceph-pacific"
-      description: "Ceph Octopus packages for x86_64"
+      description: "Ceph Pacific packages for x86_64"
       baseurl: "http://download.ceph.com/rpm-pacific/el8/x86_64"
       enabled: true
       priority: "2"
@@ -57,7 +57,7 @@ _yum_repository:
       state: "present"
     - file: "ceph"
       name: "ceph-pacific-noarch"
-      description: "Ceph Octopus noarch packages"
+      description: "Ceph Pacific noarch packages"
       baseurl: "http://download.ceph.com/rpm-pacific/el8/noarch"
       enabled: true
       priority: "2"
