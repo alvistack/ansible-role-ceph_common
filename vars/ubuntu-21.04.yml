@@ -15,12 +15,15 @@
 # limitations under the License.
 
 _apt_key:
+  "16.2": []
   "15.2": []
 
 _apt_repository:
+  "16.2": []
   "15.2": []
 
 _apt:
-  "15.2":
+  "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
+  "15.2": []

@@ -15,6 +15,13 @@
 # limitations under the License.
 
 _rpm_key:
+  "16.2":
+    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
+      fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
+      state: "present"
+    - key: "http://download.ceph.com/keys/release.asc"
+      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
   "15.2":
     - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
       fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
@@ -24,15 +31,39 @@ _rpm_key:
       state: "present"
 
 _rpm_download:
+  "16.2":
+    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
+      dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
+      sha256sum: "74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
   "15.2":
     - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       dest: "/var/cache/ansible/74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8/epel-release-latest-8.noarch.rpm"
       sha256sum: "74bb98b514f1571d15d01b63979cc530811431c8d890dd29edaaca95ca475dd8"
 
 _yum_config_manager: 
+  "16.2": []
   "15.2": []
 
 _yum_repository:
+  "16.2":
+    - file: "ceph"
+      name: "ceph-pacific"
+      description: "Ceph Octopus packages for x86_64"
+      baseurl: "http://download.ceph.com/rpm-pacific/el8/x86_64"
+      enabled: true
+      priority: "2"
+      gpgcheck: true
+      gpgkey: "http://download.ceph.com/keys/release.asc"
+      state: "present"
+    - file: "ceph"
+      name: "ceph-pacific-noarch"
+      description: "Ceph Octopus noarch packages"
+      baseurl: "http://download.ceph.com/rpm-pacific/el8/noarch"
+      enabled: true
+      priority: "2"
+      gpgcheck: true
+      gpgkey: "http://download.ceph.com/keys/release.asc"
+      state: "present"
   "15.2":
     - file: "ceph"
       name: "ceph-octopus"
@@ -54,6 +85,9 @@ _yum_repository:
       state: "present"
 
 _yum:
+  "16.2":
+    - { state: "latest", name: "ceph-base" }
+    - { state: "latest", name: "ceph-common" }
   "15.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }

@@ -15,18 +15,23 @@
 # limitations under the License.
 
 _rpm_key:
+  "16.2": []
   "15.2": []
 
 _rpm_download:
+  "16.2": []
   "15.2": []
 
 _yum_config_manager:
+  "16.2": []
   "15.2": []
 
 _yum_repository:
+  "16.2": []
   "15.2": []
 
 _yum:
-  "15.2":
+  "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
+  "15.2": []
