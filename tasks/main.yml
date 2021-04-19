@@ -89,21 +89,6 @@
   notify:
     - ceph_common | sysctl --system
 
-- name: copy templates
-  template:
-    dest: "{{ item.dest }}"
-    src: "{{ item.src | default('./templates' + item.dest + '.j2') }}"
-    owner: "{{ item.owner | default('root') }}"
-    group: "{{ item.group | default('root') }}"
-    mode: "{{ item.mode | default('0644') }}"
-  loop:
-    - { dest: "/lib/systemd/system/ceph.target" }
-    - { dest: "/lib/systemd/system/rbdmap.service" }
-  notify:
-    - ceph_common | systemctl daemon-reload
-    - ceph_common | systemctl restart ceph.target
-    - ceph_common | systemctl restart rbdmap.service
-
 - name: prepare files
   file:
     dest: "{{ item.dest }}"
@@ -113,14 +98,8 @@
     state: "{{ item.state | default('file') }}"
   loop:
     - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
-    - { dest: "/lib/systemd/system/ceph.target" }
-    - { dest: "/lib/systemd/system/cephfs-umount.service", state: "absent" }
-    - { dest: "/lib/systemd/system/mount-ceph.service", state: "absent" }
-    - { dest: "/lib/systemd/system/rbdmap.service" }
   notify:
-    - ceph_common | systemctl daemon-reload
     - ceph_common | systemctl restart ceph.target
-    - ceph_common | systemctl restart rbdmap.service
 
 - name: flush handlers
   meta: flush_handlers

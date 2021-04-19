@@ -15,17 +15,27 @@
 # limitations under the License.
 
 _apt_key:
+  "16.2":
+    - url: "http://download.ceph.com/keys/release.asc"
+      id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
   "15.2":
     - url: "http://download.ceph.com/keys/release.asc"
       id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
       state: "present"
 
 _apt_repository:
+  "16.2":
+    - repo: "deb http://download.ceph.com/debian-pacific bionic main"
+      state: "present"
   "15.2":
     - repo: "deb http://download.ceph.com/debian-octopus bionic main"
       state: "present"
 
 _apt:
+  "16.2":
+    - { state: "latest", name: "ceph-base" }
+    - { state: "latest", name: "ceph-common" }
   "15.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }

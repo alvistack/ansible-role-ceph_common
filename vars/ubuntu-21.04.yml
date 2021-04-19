@@ -23,7 +23,7 @@ _apt_repository:
   "15.2": []
 
 _apt:
-  "16.2": []
-  "15.2":
+  "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
+  "15.2": []
