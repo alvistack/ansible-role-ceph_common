@@ -17,7 +17,7 @@
 - name: ceph_common | sysctl --system
   command: sysctl --system
   changed_when: false
-  ignore_errors: true
+  failed_when: false
 
 - name: ceph_common | systemctl restart ceph.target
   service:
@@ -28,4 +28,4 @@
   delegate_to: "{{ item }}"
   run_once: true
   changed_when: false
-  ignore_errors: true
+  failed_when: false
