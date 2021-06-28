@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_pip: []
-
 _apt_key:
   "16.2":
     - url: "http://download.ceph.com/keys/release.asc"
