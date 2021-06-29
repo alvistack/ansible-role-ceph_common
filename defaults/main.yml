@@ -57,6 +57,9 @@ ceph_common_config:
   - { state: "present", section: "global", option: "auth client required", value: "cephx" }
   - { state: "present", section: "global", option: "auth cluster required", value: "cephx" }
   - { state: "present", section: "global", option: "auth service required", value: "cephx" }
+  - { state: "present", section: "global", option: "mon osd backfillfull ratio", value: "0.90" }
+  - { state: "present", section: "global", option: "mon osd full ratio", value: "0.95" }
+  - { state: "present", section: "global", option: "mon osd nearfull ratio", value: "0.85" }
   - { state: "present", section: "global", option: "mon pg warn max object skew", value: "-1" }
   - { state: "present", section: "global", option: "mon warn on pool no redundancy", value: "false" }
   - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
