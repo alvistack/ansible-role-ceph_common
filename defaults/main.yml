@@ -46,27 +46,27 @@ ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_
 
 # Ceph global configs.
 ceph_common_config:
+  - { state: "present", section: "global", option: "cluster_network", value: "{{ ceph_cluster_network }}" }
   - { state: "present", section: "global", option: "fsid", value: "{{ ceph_fsid }}" }
-  - { state: "present", section: "global", option: "public network", value: "{{ ceph_public_network }}" }
-  - { state: "present", section: "global", option: "cluster network", value: "{{ ceph_cluster_network }}" }
-  - { state: "present", section: "global", option: "mon initial members", value: "{{ ceph_mon_initial_members }}" }
-  - { state: "present", section: "global", option: "mon host", value: "{{ ceph_mon_host }}" }
-  - { state: "present", section: "client", option: "client oc max dirty", value: "16777216" }
-  - { state: "present", section: "client", option: "client oc size", value: "33554432" }
-  - { state: "present", section: "client", option: "client oc target dirty", value: "8388608" }
-  - { state: "present", section: "global", option: "auth client required", value: "cephx" }
-  - { state: "present", section: "global", option: "auth cluster required", value: "cephx" }
-  - { state: "present", section: "global", option: "auth service required", value: "cephx" }
-  - { state: "present", section: "global", option: "mon osd backfillfull ratio", value: "0.90" }
-  - { state: "present", section: "global", option: "mon osd full ratio", value: "0.95" }
-  - { state: "present", section: "global", option: "mon osd nearfull ratio", value: "0.85" }
-  - { state: "present", section: "global", option: "mon pg warn max object skew", value: "-1" }
-  - { state: "present", section: "global", option: "mon warn on pool no redundancy", value: "false" }
-  - { state: "present", section: "global", option: "osd pool default min size", value: "1" }
-  - { state: "present", section: "global", option: "osd pool default pg autoscale mode", value: "on" }
-  - { state: "present", section: "global", option: "osd pool default pg num", value: "8" }
-  - { state: "present", section: "global", option: "osd pool default pgp num", value: "8" }
-  - { state: "present", section: "global", option: "osd pool default size", value: "1" }
+  - { state: "present", section: "global", option: "mon_host", value: "{{ ceph_mon_host }}" }
+  - { state: "present", section: "global", option: "mon_initial_members", value: "{{ ceph_mon_initial_members }}" }
+  - { state: "present", section: "global", option: "public_network", value: "{{ ceph_public_network }}" }
+  - { state: "present", section: "global", option: "auth_client_required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth_cluster_required", value: "cephx" }
+  - { state: "present", section: "global", option: "auth_service_required", value: "cephx" }
+  - { state: "present", section: "global", option: "mon_osd_backfillfull_ratio", value: "0.9" }
+  - { state: "present", section: "global", option: "mon_osd_full_ratio", value: "0.95" }
+  - { state: "present", section: "global", option: "mon_osd_nearfull_ratio", value: "0.85" }
+  - { state: "present", section: "global", option: "mon_pg_warn_max_object_skew", value: "-1" }
+  - { state: "present", section: "global", option: "mon_warn_on_pool_no_redundancy", value: "false" }
+  - { state: "present", section: "global", option: "osd_pool_default_min_size", value: "1" }
+  - { state: "present", section: "global", option: "osd_pool_default_pg_autoscale_mode", value: "on" }
+  - { state: "present", section: "global", option: "osd_pool_default_pg_num", value: "8" }
+  - { state: "present", section: "global", option: "osd_pool_default_pgp_num", value: "8" }
+  - { state: "present", section: "global", option: "osd_pool_default_size", value: "1" }
+  - { state: "present", section: "client", option: "client_oc_max_dirty", value: "16777216" }
+  - { state: "present", section: "client", option: "client_oc_size", value: "33554432" }
+  - { state: "present", section: "client", option: "client_oc_target_dirty", value: "8388608" }
 
 # Entries for sysctl.
 ceph_sysctl:
