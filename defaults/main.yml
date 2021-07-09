@@ -63,7 +63,7 @@ ceph_common_config:
   - { state: "present", section: "global", option: "osd_pool_default_pg_autoscale_mode", value: "on" }
   - { state: "present", section: "global", option: "osd_pool_default_pg_num", value: "8" }
   - { state: "present", section: "global", option: "osd_pool_default_pgp_num", value: "8" }
-  - { state: "present", section: "global", option: "osd_pool_default_size", value: "1" }
+  - { state: "present", section: "global", option: "osd_pool_default_size", value: "0" }
   - { state: "present", section: "client", option: "client_oc_max_dirty", value: "16777216" }
   - { state: "present", section: "client", option: "client_oc_size", value: "33554432" }
   - { state: "present", section: "client", option: "client_oc_target_dirty", value: "8388608" }
