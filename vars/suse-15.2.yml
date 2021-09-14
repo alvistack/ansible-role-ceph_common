@@ -16,11 +16,24 @@
 
 _ceph_release: "15.2"
 
-_zypper_repository:
+_rpm_key:
   "16.2": []
   "15.2":
-    - name: "filesystems:ceph:octopus:upstream"
-      repo: "http://download.opensuse.org/repositories/filesystems:/ceph:/octopus:/upstream/openSUSE_Leap_15.2"
+    - key: "http://download.opensuse.org/repositories/filesystems:/ceph:/octopus:/upstream/openSUSE_Leap_15.2/repodata/repomd.xml.key"
+      fingerprint: "B1FB53748720472205FA601998C97FE7324E6311"
+      state: "present"
+
+_yum_repository:
+  "16.2": []
+  "15.2":
+    - file: "filesystems:ceph:octopus:upstream"
+      name: "filesystems_ceph_octopus_upstream"
+      description: "Unadulterated upstream octopus branch (openSUSE_Leap_15.2)"
+      baseurl: "http://download.opensuse.org/repositories/filesystems:/ceph:/octopus:/upstream/openSUSE_Leap_15.2"
+      enabled: true
+      priority: "2"
+      gpgcheck: true
+      gpgkey: "http://download.opensuse.org/repositories/filesystems:/ceph:/octopus:/upstream/openSUSE_Leap_15.2/repodata/repomd.xml.key"
       state: "present"
 
 _zypper:
