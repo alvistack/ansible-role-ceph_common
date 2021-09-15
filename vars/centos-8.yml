@@ -56,7 +56,7 @@ _yum_repository:
       baseurl: "http://download.ceph.com/rpm-pacific/el8/x86_64"
       enabled: true
       priority: "2"
-    module_hotfixes: true
+      module_hotfixes: true
       gpgcheck: true
       gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
@@ -66,7 +66,7 @@ _yum_repository:
       baseurl: "http://download.ceph.com/rpm-pacific/el8/noarch"
       enabled: true
       priority: "2"
-    module_hotfixes: true
+      module_hotfixes: true
       gpgcheck: true
       gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
@@ -77,7 +77,7 @@ _yum_repository:
       baseurl: "http://download.ceph.com/rpm-octopus/el8/x86_64"
       enabled: true
       priority: "2"
-    module_hotfixes: true
+      module_hotfixes: true
       gpgcheck: true
       gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
@@ -87,7 +87,7 @@ _yum_repository:
       baseurl: "http://download.ceph.com/rpm-octopus/el8/noarch"
       enabled: true
       priority: "2"
-    module_hotfixes: true
+      module_hotfixes: true
       gpgcheck: true
       gpgkey: "http://download.ceph.com/keys/release.asc"
       state: "present"
