@@ -18,22 +18,22 @@ _ceph_release: "16.2"
 
 _rpm_key:
   "16.2":
-    - key: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific:/upstream/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+    - key: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific/openSUSE_Tumbleweed/repodata/repomd.xml.key"
       fingerprint: "B1FB53748720472205FA601998C97FE7324E6311"
       state: "present"
   "15.2": []
 
 _yum_repository:
   "16.2":
-    - file: "filesystems:ceph:pacific:upstream"
-      name: "filesystems_ceph_pacific_upstream"
-      description: "Unadulterated upstream pacific branch (openSUSE_Tumbleweed)"
-      baseurl: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific:/upstream/openSUSE_Tumbleweed"
+    - file: "filesystems:ceph:pacific"
+      name: "filesystems_ceph_pacific"
+      description: "filesystems:ceph:pacific (openSUSE_Tumbleweed)"
+      baseurl: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific/openSUSE_Tumbleweed"
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific:/upstream/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+      gpgkey: "http://download.opensuse.org/repositories/filesystems:/ceph:/pacific/openSUSE_Tumbleweed/repodata/repomd.xml.key"
       state: "present"
   "15.2": []
 
