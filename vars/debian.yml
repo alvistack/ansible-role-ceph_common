@@ -17,18 +17,11 @@
 _ceph_release: "16.2"
 
 _apt_key:
-  "16.2":
-    - keyring: "/etc/apt/trusted.gpg.d/ceph.gpg"
-      url: "http://download.ceph.com/keys/release.asc"
-      id: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
+  "16.2": []
   "15.2": []
 
 _apt_repository:
-  "16.2":
-    - filename: "ceph"
-      repo: "deb http://download.ceph.com/debian-pacific bullseye main"
-      state: "present"
+  "16.2": []
   "15.2": []
 
 _apt:
