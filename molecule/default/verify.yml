@@ -19,16 +19,16 @@
   become: true
   tasks:
     - name: ceph --version
-      command: ceph --version
+      ansible.builtin.command: ceph --version
       register: result
       changed_when: result is not succeeded
 
     - name: rbd --version
-      command: rbd --version
+      ansible.builtin.command: rbd --version
       register: result
       changed_when: result is not succeeded
 
     - name: mount.ceph -h
-      command: mount.ceph -h
+      ansible.builtin.command: mount.ceph -h
       register: result
       changed_when: result is not succeeded
