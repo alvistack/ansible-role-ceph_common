@@ -19,11 +19,11 @@
   become: true
   tasks:
     - name: include role
-      include_role:
+      ansible.builtin.include_role:
         name: chrony
       tags: chrony
 
     - name: include role
-      include_role:
+      ansible.builtin.include_role:
         name: ceph_common
       tags: ceph_common
