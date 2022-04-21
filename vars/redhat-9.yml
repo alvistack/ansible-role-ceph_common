@@ -14,9 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_ceph_release: "16.2"
+_ceph_release: "17.2"
 
 _rpm_key:
+  "17.2":
+    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
+      fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
+      state: "present"
+    - key: "http://download.ceph.com/keys/release.asc"
+      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+      state: "present"
   "16.2":
     - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
       fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
@@ -33,6 +40,10 @@ _rpm_key:
       state: "present"
 
 _rpm_download:
+  "17.2":
+    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
+      dest: "/var/cache/ansible/d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390/epel-release-latest-9.noarch.rpm"
+      checksum: "d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390"
   "16.2":
     - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
       dest: "/var/cache/ansible/d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390/epel-release-latest-9.noarch.rpm"
@@ -43,10 +54,32 @@ _rpm_download:
       checksum: "d3731f75ac51d998c6c4a71871ae7b62fc6f8bbf236ba609e7d303ec8c3d1390"
 
 _yum_config_manager: 
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _yum_repository:
+  "17.2":
+    - file: "ceph"
+      name: "ceph-quincy"
+      description: "Ceph Pacific packages for x86_64"
+      baseurl: "http://download.ceph.com/rpm-quincy/el8/x86_64"
+      enabled: true
+      priority: "2"
+      module_hotfixes: true
+      gpgcheck: true
+      gpgkey: "http://download.ceph.com/keys/release.asc"
+      state: "present"
+    - file: "ceph"
+      name: "ceph-quincy-noarch"
+      description: "Ceph Pacific noarch packages"
+      baseurl: "http://download.ceph.com/rpm-quincy/el8/noarch"
+      enabled: true
+      priority: "2"
+      module_hotfixes: true
+      gpgcheck: true
+      gpgkey: "http://download.ceph.com/keys/release.asc"
+      state: "present"
   "16.2":
     - file: "ceph"
       name: "ceph-pacific"
@@ -91,6 +124,9 @@ _yum_repository:
       state: "present"
 
 _yum:
+  "17.2":
+    - { state: "latest", name: "ceph-base" }
+    - { state: "latest", name: "ceph-common" }
   "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }

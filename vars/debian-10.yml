@@ -17,6 +17,7 @@
 _ceph_release: "16.2"
 
 _apt_key:
+  "17.2": []
   "16.2":
     - keyring: "/etc/apt/trusted.gpg.d/ceph.gpg"
       url: "http://download.ceph.com/keys/release.asc"
@@ -29,6 +30,7 @@ _apt_key:
       state: "present"
 
 _apt_repository:
+  "17.2": []
   "16.2":
     - filename: "ceph"
       repo: "deb http://download.ceph.com/debian-pacific buster main"
@@ -39,6 +41,7 @@ _apt_repository:
       state: "present"
 
 _apt:
+  "17.2": []
   "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
