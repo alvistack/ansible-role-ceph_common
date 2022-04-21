@@ -17,14 +17,17 @@
 _ceph_release: "16.2"
 
 _apt_key:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _apt_repository:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _apt:
+  "17.2": []
   "16.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }

@@ -14,26 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_ceph_release: "16.2"
+_ceph_release: "17.2"
 
 _rpm_key:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _rpm_download:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _yum_config_manager:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _yum_repository:
+  "17.2": []
   "16.2": []
   "15.2": []
 
 _yum:
-  "16.2":
+  "17.2":
     - { state: "latest", name: "ceph-base" }
     - { state: "latest", name: "ceph-common" }
+  "16.2": []
   "15.2": []

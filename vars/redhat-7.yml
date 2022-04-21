@@ -17,6 +17,7 @@
 _ceph_release: "15.2"
 
 _rpm_key:
+  "17.2": []
   "16.2": []
   "15.2":
     - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7"
@@ -27,6 +28,7 @@ _rpm_key:
       state: "present"
 
 _rpm_download:
+  "17.2": []
   "16.2": []
   "15.2":
     - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
@@ -34,11 +36,13 @@ _rpm_download:
       checksum: "46fa100dbf4c103e1b33f04128a837028d603939ef5d72026c4ab9dadcd55bed"
 
 _yum_config_manager:
+  "17.2": []
   "16.2": []
   "15.2":
     - { state: "enable", name: "rhel-7-server-extras-rpms" }
 
 _yum_repository:
+  "17.2": []
   "16.2": []
   "15.2":
     - file: "ceph"
@@ -63,6 +67,7 @@ _yum_repository:
       state: "present"
 
 _yum:
+  "17.2": []
   "16.2": []
   "15.2":
     - { state: "latest", name: "ceph-base" }
