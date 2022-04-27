@@ -20,10 +20,10 @@
   tasks:
     - name: include role
       ansible.builtin.include_role:
-        name: chrony
-      tags: chrony
+        name: alvistack.chrony
+      tags: alvistack.chrony
 
     - name: include role
       ansible.builtin.include_role:
-        name: ceph_common
-      tags: ceph_common
+        name: alvistack.ceph_common
+      tags: alvistack.ceph_common

@@ -49,11 +49,11 @@ _apt_repository:
 
 _apt:
   "17.2":
-    - { state: "latest", name: "ceph-base" }
-    - { state: "latest", name: "ceph-common" }
+    - { state: "present", name: "ceph-base={{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common={{ ceph_version }}*" }
   "16.2":
-    - { state: "latest", name: "ceph-base" }
-    - { state: "latest", name: "ceph-common" }
+    - { state: "present", name: "ceph-base={{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common={{ ceph_version }}*" }
   "15.2":
-    - { state: "latest", name: "ceph-base" }
-    - { state: "latest", name: "ceph-common" }
+    - { state: "present", name: "ceph-base={{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common={{ ceph_version }}*" }
