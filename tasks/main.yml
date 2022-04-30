@@ -93,7 +93,7 @@
     reload: false
   loop: "{{ ceph_sysctl }}"
   notify:
-    - ceph_common | sysctl --system
+    - ceph_common | systemctl restart systemd-sysctl.service
 
 - name: prepare files
   ansible.builtin.file:
