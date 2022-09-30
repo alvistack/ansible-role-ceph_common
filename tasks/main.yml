@@ -75,7 +75,7 @@
     - { dest: "/etc/ceph/ceph.conf", owner: "ceph", group: "ceph" }
 
 - name: tweak settings in ini files
-  ini_file:
+  community.general.ini_file:
     section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -85,7 +85,7 @@
   loop: "{{ ceph_common_config }}"
 
 - name: tweak sysctl entries
-  sysctl:
+  ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
     state: "{{ item.state }}"
