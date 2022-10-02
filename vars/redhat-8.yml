@@ -53,7 +53,7 @@ _rpm_download:
       dest: "/var/cache/ansible/ceadccdf78e2e4966d8859eb061df28a7bcce4d8a4d120db93ff558e94bc54da/epel-release-latest-8.noarch.rpm"
       checksum: "ceadccdf78e2e4966d8859eb061df28a7bcce4d8a4d120db93ff558e94bc54da"
 
-_yum_config_manager: 
+_yum_config_manager:
   "17.2": []
   "16.2": []
   "15.2": []
