@@ -35,7 +35,7 @@ _apt_repository:
 
 _apt:
   "17.2":
-    - { state: "latest", name: "ceph-base=100:{{ ceph_version }}*" }
-    - { state: "latest", name: "ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
   "16.2": []
   "15.2": []

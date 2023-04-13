@@ -14,10 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_ceph_release: "16.2"
+_ceph_release: "17.2"
 
 _apt_key:
-  "17.2": []
+  "17.2":
+    - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_18.04/Release.key"
+      id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
   "16.2":
     - keyring: "/etc/apt/trusted.gpg.d/ceph.gpg"
       url: "http://download.ceph.com/keys/release.asc"
@@ -30,7 +34,10 @@ _apt_key:
       state: "present"
 
 _apt_repository:
-  "17.2": []
+  "17.2":
+    - filename: "home:alvistack"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_18.04/ /"
+      state: "present"
   "16.2":
     - filename: "ceph"
       repo: "deb http://download.ceph.com/debian-pacific bionic main"
@@ -41,7 +48,9 @@ _apt_repository:
       state: "present"
 
 _apt:
-  "17.2": []
+  "17.2":
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
   "16.2":
     - { state: "present", name: "ceph-base={{ ceph_version }}*" }
     - { state: "present", name: "ceph-common={{ ceph_version }}*" }
