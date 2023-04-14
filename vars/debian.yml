@@ -17,18 +17,25 @@
 _ceph_release: "17.2"
 
 _apt_key:
-  "17.2": []
+  "17.2":
+    - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key"
+      id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
   "16.2": []
   "15.2": []
 
 _apt_repository:
-  "17.2": []
+  "17.2":
+    - filename: "home:alvistack"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/ /"
+      state: "present"
   "16.2": []
   "15.2": []
 
 _apt:
   "17.2":
-    - { state: "latest", name: "ceph-base" }
-    - { state: "latest", name: "ceph-common" }
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
   "16.2": []
   "15.2": []
