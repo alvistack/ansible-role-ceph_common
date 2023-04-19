@@ -18,30 +18,30 @@ _ceph_release: "17.2"
 
 _rpm_key:
   "17.2":
-    - key: "http://downloadcontent.opensuse.org/repositories/filesystems:/ceph:/quincy:/upstream/openSUSE_Leap_15.4/repodata/repomd.xml.key"
-      fingerprint: "B1FB53748720472205FA601998C97FE7324E6311"
+    - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.4/repodata/repomd.xml.key"
+      fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
   "16.2": []
   "15.2": []
 
 _yum_repository:
   "17.2":
-    - file: "filesystems:ceph:quincy:upstream"
-      name: "filesystems_ceph_quincy_upstream"
-      description: "filesystems:ceph:quincy:upstream (openSUSE_Leap_15.4)"
-      baseurl: "http://downloadcontent.opensuse.org/repositories/filesystems:/ceph:/quincy:/upstream/openSUSE_Leap_15.4"
+    - file: "home_alvistack"
+      name: "home_alvistack"
+      description: "home:alvistack (openSUSE_Leap_15.4)"
+      baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.4"
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: "http://downloadcontent.opensuse.org/repositories/filesystems:/ceph:/quincy:/upstream/openSUSE_Leap_15.4/repodata/repomd.xml.key"
+      gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/openSUSE_Leap_15.4/repodata/repomd.xml.key"
       state: "present"
   "16.2": []
   "15.2": []
 
 _zypper:
   "17.2":
-    - { state: "present", name: "ceph-base-{{ ceph_version }}" }
-    - { state: "present", name: "ceph-common-{{ ceph_version }}" }
+    - { state: "present", name: "ceph-base-100:{{ ceph_version }}" }
+    - { state: "present", name: "ceph-common-100:{{ ceph_version }}" }
   "16.2": []
   "15.2": []
