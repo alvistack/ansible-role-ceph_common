@@ -18,11 +18,8 @@ _ceph_release: "17.2"
 
 _rpm_key:
   "17.2":
-    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
-      fingerprint: "94E279EB8D8F25B21810ADF121EA45AB2F86D6A1"
-      state: "present"
-    - key: "http://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
+    - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key"
+      fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
   "16.2":
     - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8"
@@ -40,10 +37,7 @@ _rpm_key:
       state: "present"
 
 _rpm_download:
-  "17.2":
-    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-      dest: "/var/cache/ansible/d6f1e7ca1db1f27f80d34599cb5544f277c186728ec670284fdf389d896ed194/epel-release-latest-8.noarch.rpm"
-      checksum: "d6f1e7ca1db1f27f80d34599cb5544f277c186728ec670284fdf389d896ed194"
+  "17.2": []
   "16.2":
     - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       dest: "/var/cache/ansible/d6f1e7ca1db1f27f80d34599cb5544f277c186728ec670284fdf389d896ed194/epel-release-latest-8.noarch.rpm"
@@ -60,25 +54,15 @@ _yum_config_manager:
 
 _yum_repository:
   "17.2":
-    - file: "ceph"
-      name: "ceph-quincy"
-      description: "Ceph Pacific packages for x86_64"
-      baseurl: "http://download.ceph.com/rpm-quincy/el8/x86_64"
+    - file: "home:alvistack"
+      name: "home_alvistack"
+      description: "home:alvistack (CentOS_8_Stream)"
+      baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream"
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph"
-      name: "ceph-quincy-noarch"
-      description: "Ceph Pacific noarch packages"
-      baseurl: "http://download.ceph.com/rpm-quincy/el8/noarch"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
+      gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_8_Stream/repodata/repomd.xml.key"
       state: "present"
   "16.2":
     - file: "ceph"
@@ -125,8 +109,8 @@ _yum_repository:
 
 _yum:
   "17.2":
-    - { state: "present", name: "ceph-base-{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-common-{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
   "16.2":
     - { state: "present", name: "ceph-base-{{ ceph_version }}*" }
     - { state: "present", name: "ceph-common-{{ ceph_version }}*" }
