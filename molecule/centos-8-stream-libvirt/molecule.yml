@@ -54,10 +54,6 @@ platforms:
       - "vm.box_check_update = false"
     groups:
       - ceph_mon
-      - ceph_mgr
-      - ceph_osd
-      - ceph_mds
-      - ceph_rgw
 dependency:
   name: galaxy
   options:
