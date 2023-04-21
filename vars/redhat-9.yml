@@ -17,103 +17,22 @@
 _ceph_release: "17.2"
 
 _rpm_key:
-  "17.2":
-    - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
-      fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-      state: "present"
-  "16.2":
-    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
-      fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
-      state: "present"
-    - key: "http://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
-  "15.2":
-    - key: "http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
-      fingerprint: "FF8AD1344597106ECE813B918A3872BF3228467C"
-      state: "present"
-    - key: "http://download.ceph.com/keys/release.asc"
-      fingerprint: "08B73419AC32B4E966C1A330E84AC2C0460F3994"
-      state: "present"
-
-_rpm_download:
-  "17.2": []
-  "16.2":
-    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
-      dest: "/var/cache/ansible/2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c/epel-release-latest-9.noarch.rpm"
-      checksum: "2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c"
-  "15.2":
-    - url: "http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
-      dest: "/var/cache/ansible/2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c/epel-release-latest-9.noarch.rpm"
-      checksum: "2a129575a75ec26d95b1e1ec0f8c87269df9ebec111959d1acd461de074ea87c"
-
-_yum_config_manager:
-  "17.2": []
-  "16.2": []
-  "15.2": []
+  - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
+    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+    state: "present"
 
 _yum_repository:
-  "17.2":
-    - file: "home:alvistack"
-      name: "home_alvistack"
-      description: "home:alvistack (CentOS_9_Stream)"
-      baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
-      state: "present"
-  "16.2":
-    - file: "ceph"
-      name: "ceph-pacific"
-      description: "Ceph Pacific packages for x86_64"
-      baseurl: "http://download.ceph.com/rpm-pacific/el8/x86_64"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph"
-      name: "ceph-pacific-noarch"
-      description: "Ceph Pacific noarch packages"
-      baseurl: "http://download.ceph.com/rpm-pacific/el8/noarch"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
-      state: "present"
-  "15.2":
-    - file: "ceph"
-      name: "ceph-octopus"
-      description: "Ceph Octopus packages for x86_64"
-      baseurl: "http://download.ceph.com/rpm-octopus/el8/x86_64"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
-      state: "present"
-    - file: "ceph"
-      name: "ceph-octopus-noarch"
-      description: "Ceph Octopus noarch packages"
-      baseurl: "http://download.ceph.com/rpm-octopus/el8/noarch"
-      enabled: true
-      priority: "2"
-      module_hotfixes: true
-      gpgcheck: true
-      gpgkey: "http://download.ceph.com/keys/release.asc"
-      state: "present"
+  - file: "home:alvistack"
+    name: "home_alvistack"
+    description: "home:alvistack (CentOS_9_Stream)"
+    baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream"
+    enabled: true
+    priority: "2"
+    module_hotfixes: true
+    gpgcheck: true
+    gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key"
+    state: "present"
 
 _yum:
-  "17.2":
-    - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
-  "16.2":
-    - { state: "present", name: "ceph-base-{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-common-{{ ceph_version }}*" }
-  "15.2":
-    - { state: "present", name: "ceph-base-{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-common-{{ ceph_version }}*" }
+  - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
+  - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
