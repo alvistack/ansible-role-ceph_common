@@ -17,16 +17,76 @@
 _ceph_release: "17.2"
 
 _apt_key:
-  - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-    url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key"
-    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-    state: "present"
+  "17.2":
+    - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key"
+      id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
+  "16.2":
+    - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key"
+      id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
+  "15.2":
+    - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/Release.key"
+      id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
 
 _apt_repository:
-  - filename: "home:alvistack"
-    repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/ /"
-    state: "present"
+  "17.2":
+    - filename: "home:alvistack"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/ /"
+      state: "present"
+  "16.2":
+    - filename: "home:alvistack"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/ /"
+      state: "present"
+  "15.2":
+    - filename: "home:alvistack"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_Testing/ /"
+      state: "present"
 
 _apt:
-  - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
-  - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
+  "17.2":
+    - { state: "present", name: "librados2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libradosstriper1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librbd1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libcephfs2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librgw2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rados=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rbd=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-cephfs=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rgw=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
+  "16.2":
+    - { state: "present", name: "librados2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libradosstriper1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librbd1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libcephfs2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librgw2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rados=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rbd=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-cephfs=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rgw=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
+  "15.2":
+    - { state: "present", name: "librados2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libradosstriper1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librbd1=100:{{ ceph_version }}*" }
+    - { state: "present", name: "libcephfs2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "librgw2=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rados=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rbd=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-cephfs=100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rgw=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common=100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base=100:{{ ceph_version }}*" }
