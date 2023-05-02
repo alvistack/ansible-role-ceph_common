@@ -20,7 +20,7 @@
     url: "{{ item.url }}"
     id: "{{ item.id }}"
     state: "{{ item.state }}"
-  loop: "{{ _apt_key }}"
+  loop: "{{ _apt_key[ceph_release] }}"
   register: result
   until: result is succeeded
 
@@ -30,7 +30,7 @@
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
     mode: "{{ item.mode | default('0644') }}"
-  loop: "{{ _apt_repository }}"
+  loop: "{{ _apt_repository[ceph_release] }}"
   register: result
   until: result is succeeded
 
@@ -38,7 +38,7 @@
   ansible.builtin.dpkg_selections:
     name: "{{ item.name | regex_replace('^(.*)=[0-9]*:*[0-9]+\\..*$', '\\1') }}"
     selection: "install"
-  loop: "{{ _apt }}"
+  loop: "{{ _apt[ceph_release] }}"
   when: item.state == "present"
   changed_when: false
   failed_when: false
@@ -49,7 +49,7 @@
     name: "{{ item.name | default(None) or omit }}"
     deb: "{{ item.deb | default(None) or omit }}"
     install_recommends: false
-  loop: "{{ _apt }}"
+  loop: "{{ _apt[ceph_release] }}"
   register: result
   until: result is succeeded
 
@@ -57,7 +57,7 @@
   ansible.builtin.dpkg_selections:
     name: "{{ item.name | regex_replace('^(.*)=[0-9]*:*[0-9]+\\..*$', '\\1') }}"
     selection: "hold"
-  loop: "{{ _apt }}"
+  loop: "{{ _apt[ceph_release] }}"
   when: item.state == "present"
   changed_when: false
   failed_when: false

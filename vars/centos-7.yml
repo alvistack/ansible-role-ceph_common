@@ -14,25 +14,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_ceph_release: "17.2"
+_ceph_release: "15.2"
 
 _rpm_key:
-  - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
-    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-    state: "present"
+  "17.2": []
+  "16.2": []
+  "15.2":
+    - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+      fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
+      state: "present"
 
 _yum_repository:
-  - file: "home:alvistack"
-    name: "home_alvistack"
-    description: "home:alvistack (CentOS_7)"
-    baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7"
-    enabled: true
-    priority: "2"
-    module_hotfixes: true
-    gpgcheck: true
-    gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
-    state: "present"
+  "17.2": []
+  "16.2": []
+  "15.2":
+    - file: "home:alvistack"
+      name: "home_alvistack"
+      description: "home:alvistack (CentOS_7)"
+      baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7"
+      enabled: true
+      priority: "2"
+      module_hotfixes: true
+      gpgcheck: true
+      gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+      state: "present"
 
 _yum:
-  - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
-  - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
+  "17.2": []
+  "16.2": []
+  "15.2":
+    - { state: "present", name: "librados2-100:{{ ceph_version }}*" }
+    - { state: "present", name: "libradosstriper1-100:{{ ceph_version }}*" }
+    - { state: "present", name: "librbd1-100:{{ ceph_version }}*" }
+    - { state: "present", name: "libcephfs2-100:{{ ceph_version }}*" }
+    - { state: "present", name: "librgw2-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-common-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-ceph-argparse-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rados-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rbd-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-cephfs-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python3-rgw-100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
+    - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
