@@ -48,11 +48,11 @@ _yum:
     - { state: "present", name: "librbd1-100:{{ ceph_version }}*" }
     - { state: "present", name: "libcephfs2-100:{{ ceph_version }}*" }
     - { state: "present", name: "librgw2-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-ceph-common-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-ceph-argparse-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-rados-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-rbd-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-cephfs-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python3-rgw-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-ceph-common-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-ceph-argparse-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-rados-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-rbd-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-cephfs-100:{{ ceph_version }}*" }
+    - { state: "present", name: "python36-rgw-100:{{ ceph_version }}*" }
     - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
     - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
