@@ -17,6 +17,7 @@
 _ceph_release: "17.2"
 
 _apt_key:
+  "18.2": []
   "17.2":
     - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
       url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key"
@@ -34,6 +35,7 @@ _apt_key:
       state: "present"
 
 _apt_repository:
+  "18.2": []
   "17.2":
     - filename: "home:alvistack"
       repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/ /"
@@ -48,6 +50,7 @@ _apt_repository:
       state: "present"
 
 _apt:
+  "18.2": []
   "17.2":
     - { state: "present", name: "librados2=100:{{ ceph_version }}*" }
     - { state: "present", name: "libradosstriper1=100:{{ ceph_version }}*" }
