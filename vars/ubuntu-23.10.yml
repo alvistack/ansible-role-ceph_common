@@ -19,41 +19,41 @@ _ceph_release: "18.2"
 _apt_key:
   "18.2":
     - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/Release.key"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/Release.key"
       id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
   "17.2":
     - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/Release.key"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/Release.key"
       id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
   "16.2":
     - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/Release.key"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/Release.key"
       id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
   "15.2":
     - keyring: "/etc/apt/trusted.gpg.d/home_alvistack.gpg"
-      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/Release.key"
+      url: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/Release.key"
       id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
       state: "present"
 
 _apt_repository:
   "18.2":
     - filename: "home:alvistack"
-      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/ /"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/ /"
       state: "present"
   "17.2":
     - filename: "home:alvistack"
-      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/ /"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/ /"
       state: "present"
   "16.2":
     - filename: "home:alvistack"
-      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/ /"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/ /"
       state: "present"
   "15.2":
     - filename: "home:alvistack"
-      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.04/ /"
+      repo: "deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_23.10/ /"
       state: "present"
 
 _apt:
