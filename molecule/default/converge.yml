@@ -22,9 +22,7 @@
     - name: include role
       ansible.builtin.include_role:
         name: alvistack.chrony
-      tags: alvistack.chrony
 
     - name: include role
       ansible.builtin.include_role:
         name: alvistack.ceph_common
-      tags: alvistack.ceph_common
