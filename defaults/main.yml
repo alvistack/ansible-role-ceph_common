@@ -1,6 +1,6 @@
 ---
 
-# Copyright 2023 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+# Copyright 2024 Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,10 +42,10 @@ ceph_mon_host: >-
   {{ _ns._params | join(',') }}
 
 # Ceph public network.
-ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.netcommon.ipaddr('net') }}"
+ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.utils.ipaddr('net') }}"
 
 # Ceph cluster network.
-ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.netcommon.ipaddr('net') }}"
+ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.netmask) | ansible.utils.ipaddr('net') }}"
 
 # Ceph global configs.
 ceph_common_config:
