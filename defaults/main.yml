@@ -57,7 +57,6 @@ ceph_common_config:
   - { state: "present", section: "global", option: "auth_client_required", value: "cephx" }
   - { state: "present", section: "global", option: "auth_cluster_required", value: "cephx" }
   - { state: "present", section: "global", option: "auth_service_required", value: "cephx" }
-  - { state: "present", section: "global", option: "mon_max_pg_per_osd", value: "500" }
   - { state: "present", section: "global", option: "mon_osd_backfillfull_ratio", value: "0.9" }
   - { state: "present", section: "global", option: "mon_osd_full_ratio", value: "0.95" }
   - { state: "present", section: "global", option: "mon_osd_nearfull_ratio", value: "0.85" }
