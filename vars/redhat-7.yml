@@ -21,41 +21,41 @@ _rpm_key:
   "17.2": []
   "16.2": []
   "15.2":
-    - key: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
-      fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
-      state: "present"
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key
+      fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+      state: present
 
 _yum_repository:
   "18.2": []
   "17.2": []
   "16.2": []
   "15.2":
-    - file: "home:alvistack"
-      name: "home_alvistack"
-      description: "home:alvistack (CentOS_7)"
-      baseurl: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7"
+    - file: home:alvistack
+      name: home_alvistack
+      description: home:alvistack (CentOS_7)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: "http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
-      state: "present"
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key
+      state: present
 
 _yum:
   "18.2": []
   "17.2": []
   "16.2": []
   "15.2":
-    - { state: "present", name: "librados2-100:{{ ceph_version }}*" }
-    - { state: "present", name: "libradosstriper1-100:{{ ceph_version }}*" }
-    - { state: "present", name: "librbd1-100:{{ ceph_version }}*" }
-    - { state: "present", name: "libcephfs2-100:{{ ceph_version }}*" }
-    - { state: "present", name: "librgw2-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-ceph-common-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-ceph-argparse-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-rados-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-rbd-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-cephfs-100:{{ ceph_version }}*" }
-    - { state: "present", name: "python36-rgw-100:{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-common-100:{{ ceph_version }}*" }
-    - { state: "present", name: "ceph-base-100:{{ ceph_version }}*" }
+    - { state: present, name: "librados2-100:{{ ceph_version }}*" }
+    - { state: present, name: "libradosstriper1-100:{{ ceph_version }}*" }
+    - { state: present, name: "librbd1-100:{{ ceph_version }}*" }
+    - { state: present, name: "libcephfs2-100:{{ ceph_version }}*" }
+    - { state: present, name: "librgw2-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-ceph-common-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-ceph-argparse-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-rados-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-rbd-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-cephfs-100:{{ ceph_version }}*" }
+    - { state: present, name: "python36-rgw-100:{{ ceph_version }}*" }
+    - { state: present, name: "ceph-common-100:{{ ceph_version }}*" }
+    - { state: present, name: "ceph-base-100:{{ ceph_version }}*" }
