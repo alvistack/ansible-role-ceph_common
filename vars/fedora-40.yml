@@ -18,7 +18,7 @@ _ceph_release: "18.2"
 
 _rpm_key:
   "18.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_Rawhide/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_40/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
   "17.2": []
@@ -29,13 +29,13 @@ _yum_repository:
   "18.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (Fedora_Rawhide)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_Rawhide
+      description: home:alvistack (Fedora_40)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_40
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_Rawhide/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Fedora_40/repodata/repomd.xml.key
       state: present
   "17.2": []
   "16.2": []
