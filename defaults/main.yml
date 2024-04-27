@@ -72,6 +72,11 @@ ceph_common_config:
   - { state: present, section: client, option: client_oc_size, value: "33554432" }
   - { state: present, section: client, option: client_oc_target_dirty, value: "8388608" }
 
+# Kernel modules.
+ceph_modprobe:
+  - { state: present, option: ceph }
+  - { state: present, option: rbd }
+
 # Entries for sysctl.
 ceph_sysctl:
   - { state: present, name: fs.file-max, value: "26234859" }

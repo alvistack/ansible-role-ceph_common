@@ -83,6 +83,18 @@
     mode: "0644"
   loop: "{{ ceph_common_config }}"
 
+- name: tweak modeprobe entries
+  community.general.ini_file:
+    option: "{{ item.option }}"
+    state: "{{ item.state }}"
+    path: /usr/lib/modules-load.d/ceph.conf
+    section: ""
+    mode: "0644"
+    allow_no_value: true
+  loop: "{{ ceph_modprobe }}"
+  notify:
+    - ceph_common | systemctl restart systemd-modules-load.service
+
 - name: tweak sysctl entries
   ansible.posix.sysctl:
     name: "{{ item.name }}"
