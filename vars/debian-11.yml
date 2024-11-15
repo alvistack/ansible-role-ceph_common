@@ -17,6 +17,7 @@
 _ceph_release: "17.2"
 
 _apt_key:
+  "19.2": []
   "18.2": []
   "17.2":
     - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
@@ -35,6 +36,7 @@ _apt_key:
       state: present
 
 _apt_repository:
+  "19.2": []
   "18.2": []
   "17.2":
     - filename: home:alvistack
@@ -50,6 +52,7 @@ _apt_repository:
       state: present
 
 _apt:
+  "19.2": []
   "18.2": []
   "17.2":
     - { state: present, name: "librados2=100:{{ ceph_version }}*" }

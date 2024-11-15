@@ -17,6 +17,11 @@
 _ceph_release: "19.2"
 
 _apt_key:
+  "19.2":
+    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
+      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.10/Release.key
+      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+      state: present
   "18.2":
     - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
       url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.10/Release.key
@@ -39,6 +44,10 @@ _apt_key:
       state: present
 
 _apt_repository:
+  "19.2":
+    - filename: home:alvistack
+      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.10/ /
+      state: present
   "18.2":
     - filename: home:alvistack
       repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_24.10/ /
@@ -57,6 +66,20 @@ _apt_repository:
       state: present
 
 _apt:
+  "19.2":
+    - { state: present, name: "librados2=100:{{ ceph_version }}*" }
+    - { state: present, name: "libradosstriper1=100:{{ ceph_version }}*" }
+    - { state: present, name: "librbd1=100:{{ ceph_version }}*" }
+    - { state: present, name: "libcephfs2=100:{{ ceph_version }}*" }
+    - { state: present, name: "librgw2=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-ceph-common=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-rados=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-rbd=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-cephfs=100:{{ ceph_version }}*" }
+    - { state: present, name: "python3-rgw=100:{{ ceph_version }}*" }
+    - { state: present, name: "ceph-common=100:{{ ceph_version }}*" }
+    - { state: present, name: "ceph-base=100:{{ ceph_version }}*" }
   "18.2":
     - { state: present, name: "librados2=100:{{ ceph_version }}*" }
     - { state: present, name: "libradosstriper1=100:{{ ceph_version }}*" }
