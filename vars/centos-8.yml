@@ -17,6 +17,7 @@
 _ceph_release: "17.2"
 
 _rpm_key:
+  "19.2": []
   "18.2": []
   "17.2":
     - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_8/repodata/repomd.xml.key
@@ -32,6 +33,7 @@ _rpm_key:
       state: present
 
 _yum_repository:
+  "19.2": []
   "18.2": []
   "17.2":
     - file: home:alvistack
@@ -68,6 +70,7 @@ _yum_repository:
       state: present
 
 _yum:
+  "19.2": []
   "18.2": []
   "17.2":
     - { state: present, name: "librados2-100:{{ ceph_version }}*" }
