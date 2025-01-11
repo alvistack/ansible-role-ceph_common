@@ -16,53 +16,51 @@
 
 _ceph_release: "19.2"
 
-_apt_key:
+_deb822_repository:
   "19.2":
-    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
-      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
-      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    - name: alvistack
+      types: deb
+      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04
+      suites: /
+      components: ~
+      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
+      enabled: true
       state: present
   "18.2":
-    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
-      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
-      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    - name: alvistack
+      types: deb
+      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04
+      suites: /
+      components: ~
+      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
+      enabled: true
       state: present
   "17.2":
-    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
-      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
-      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    - name: alvistack
+      types: deb
+      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04
+      suites: /
+      components: ~
+      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
+      enabled: true
       state: present
   "16.2":
-    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
-      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
-      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
+    - name: alvistack
+      types: deb
+      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04
+      suites: /
+      components: ~
+      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
+      enabled: true
       state: present
   "15.2":
-    - keyring: /etc/apt/trusted.gpg.d/home_alvistack.gpg
-      url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
-      id: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
-      state: present
-
-_apt_repository:
-  "19.2":
-    - filename: home:alvistack
-      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/ /
-      state: present
-  "18.2":
-    - filename: home:alvistack
-      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/ /
-      state: present
-  "17.2":
-    - filename: home:alvistack
-      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/ /
-      state: present
-  "16.2":
-    - filename: home:alvistack
-      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/ /
-      state: present
-  "15.2":
-    - filename: home:alvistack
-      repo: deb http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/ /
+    - name: alvistack
+      types: deb
+      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04
+      suites: /
+      components: ~
+      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_22.04/Release.key
+      enabled: true
       state: present
 
 _apt:
