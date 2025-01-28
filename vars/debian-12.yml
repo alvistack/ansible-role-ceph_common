@@ -16,50 +16,72 @@
 
 _ceph_release: "19.2"
 
+_apt_key:
+  "19.2":
+    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      dest: /etc/apt/keyrings/home-alvistack.asc
+      checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
+  "18.2":
+    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      dest: /etc/apt/keyrings/home-alvistack.asc
+      checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
+  "17.2":
+    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      dest: /etc/apt/keyrings/home-alvistack.asc
+      checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
+  "16.2":
+    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      dest: /etc/apt/keyrings/home-alvistack.asc
+      checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
+  "15.2":
+    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      dest: /etc/apt/keyrings/home-alvistack.asc
+      checksum: "sha256:90b960d05e9c5f068f70a6afa1c2623c400312f4e719bd97719d85e49b7de2b2"
+
 _deb822_repository:
   "19.2":
-    - name: alvistack
+    - name: home-alvistack
       types: deb
       uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12
       suites: /
       components:
-      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      signed_by: /etc/apt/keyrings/home-alvistack.asc
       enabled: true
       state: present
   "18.2":
-    - name: alvistack
+    - name: home-alvistack
       types: deb
       uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12
       suites: /
       components:
-      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      signed_by: /etc/apt/keyrings/home-alvistack.asc
       enabled: true
       state: present
   "17.2":
-    - name: alvistack
+    - name: home-alvistack
       types: deb
       uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12
       suites: /
       components:
-      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      signed_by: /etc/apt/keyrings/home-alvistack.asc
       enabled: true
       state: present
   "16.2":
-    - name: alvistack
+    - name: home-alvistack
       types: deb
       uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12
       suites: /
       components:
-      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      signed_by: /etc/apt/keyrings/home-alvistack.asc
       enabled: true
       state: present
   "15.2":
-    - name: alvistack
+    - name: home-alvistack
       types: deb
       uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12
       suites: /
       components:
-      signed_by: http://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_12/Release.key
+      signed_by: /etc/apt/keyrings/home-alvistack.asc
       enabled: true
       state: present
 
