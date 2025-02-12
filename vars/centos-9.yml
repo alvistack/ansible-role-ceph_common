@@ -18,23 +18,23 @@ _ceph_release: "19.2"
 
 _rpm_key:
   "19.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
   "18.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
   "17.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
   "16.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
   "15.2":
-    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+    - key: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       fingerprint: 789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD
       state: present
 
@@ -42,57 +42,57 @@ _yum_repository:
   "19.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (AlmaLinux_9)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+      description: home:alvistack (CentOS_9_Stream)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       state: present
   "18.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (AlmaLinux_9)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+      description: home:alvistack (CentOS_9_Stream)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       state: present
   "17.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (AlmaLinux_9)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+      description: home:alvistack (CentOS_9_Stream)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       state: present
   "16.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (AlmaLinux_9)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+      description: home:alvistack (CentOS_9_Stream)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       state: present
   "15.2":
     - file: home:alvistack
       name: home_alvistack
-      description: home:alvistack (AlmaLinux_9)
-      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9
+      description: home:alvistack (CentOS_9_Stream)
+      baseurl: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream
       enabled: true
       priority: "2"
       module_hotfixes: true
       gpgcheck: true
-      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/AlmaLinux_9/repodata/repomd.xml.key
+      gpgkey: http://downloadcontent.opensuse.org/repositories/home:/alvistack/CentOS_9_Stream/repodata/repomd.xml.key
       state: present
 
 _yum:
