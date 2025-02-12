@@ -21,7 +21,7 @@ ceph_release: "{{ _ceph_release }}"
 ceph_version: "{{ _ceph_version[ceph_release] }}"
 
 # Ceph fsid.
-ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_machine_id | to_uuid }}"
+ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_machine_id }}"
 
 # Ceph Monitor initial members.
 ceph_mon_initial_members: >-
