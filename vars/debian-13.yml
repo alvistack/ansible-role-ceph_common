@@ -18,11 +18,11 @@ _ceph_release: "19.2"
 
 _apt_key:
   "19.2":
-    - url: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
+    - url: https://download.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
       dest: /etc/apt/keyrings/home-alvistack.asc
       checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
   "18.2":
-    - url: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
+    - url: https://download.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
       dest: /etc/apt/keyrings/home-alvistack.asc
       checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
   "17.2": []
@@ -33,7 +33,7 @@ _deb822_repository:
   "19.2":
     - name: home-alvistack
       types: deb
-      uris: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_13
+      uris: https://download.opensuse.org/repositories/home:/alvistack/Debian_13
       suites: /
       components:
       signed_by: /etc/apt/keyrings/home-alvistack.asc
@@ -42,7 +42,7 @@ _deb822_repository:
   "18.2":
     - name: home-alvistack
       types: deb
-      uris: https://downloadcontent.opensuse.org/repositories/home:/alvistack/Debian_13
+      uris: https://download.opensuse.org/repositories/home:/alvistack/Debian_13
       suites: /
       components:
       signed_by: /etc/apt/keyrings/home-alvistack.asc
