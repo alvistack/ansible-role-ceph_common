@@ -20,15 +20,15 @@ _apt_key:
   "19.2": []
   "18.2": []
   "17.2":
-    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
+    - url: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
       dest: /etc/apt/keyrings/home-alvistack.asc
       checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
   "16.2":
-    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
+    - url: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
       dest: /etc/apt/keyrings/home-alvistack.asc
       checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
   "15.2":
-    - url: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
+    - url: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04/Release.key
       dest: /etc/apt/keyrings/home-alvistack.asc
       checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
 
@@ -38,7 +38,7 @@ _deb822_repository:
   "17.2":
     - name: home-alvistack
       types: deb
-      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
+      uris: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
       suites: /
       components:
       signed_by: /etc/apt/keyrings/home-alvistack.asc
@@ -47,7 +47,7 @@ _deb822_repository:
   "16.2":
     - name: home-alvistack
       types: deb
-      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
+      uris: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
       suites: /
       components:
       signed_by: /etc/apt/keyrings/home-alvistack.asc
@@ -56,7 +56,7 @@ _deb822_repository:
   "15.2":
     - name: home-alvistack
       types: deb
-      uris: http://downloadcontent.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
+      uris: http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.04
       suites: /
       components:
       signed_by: /etc/apt/keyrings/home-alvistack.asc

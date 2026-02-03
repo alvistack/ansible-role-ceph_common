@@ -21,7 +21,7 @@ ceph_release: "{{ _ceph_release }}"
 ceph_version: "{{ _ceph_version[ceph_release] }}"
 
 # Ceph fsid.
-ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_machine_id }}"
+ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_facts['machine_id'] }}"
 
 # Ceph Monitor initial members.
 ceph_mon_initial_members: >-
@@ -37,15 +37,15 @@ ceph_mon_host: >-
   {%- set ns = namespace() -%}
   {%- set ns.params = [] -%}
   {%- for host in groups['ceph_mon'] -%}
-  {%-   set ns.params = ns.params + [hostvars[host].ansible_default_ipv4.address] -%}
+  {%-   set ns.params = ns.params + [hostvars[host].ansible_facts['default_ipv4'].address] -%}
   {%- endfor -%}
   {{ ns.params | join(',') }}
 
 # Ceph public network.
-ceph_public_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.prefix) }}"
+ceph_public_network: "{{ (ansible_facts['default_ipv4'].network + '/' + ansible_facts['default_ipv4'].prefix) }}"
 
 # Ceph cluster network.
-ceph_cluster_network: "{{ (ansible_default_ipv4.network + '/' + ansible_default_ipv4.prefix) }}"
+ceph_cluster_network: "{{ (ansible_facts['default_ipv4'].network + '/' + ansible_facts['default_ipv4'].prefix) }}"
 
 # Ceph global configs.
 ceph_common_config:
