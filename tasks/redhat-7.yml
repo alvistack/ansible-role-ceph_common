@@ -18,7 +18,7 @@
     key: "{{ item.key }}"
     fingerprint: "{{ item.fingerprint }}"
     state: "{{ item.state }}"
-  loop: "{{ _rpm_key[ceph_release] }}"
+  loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
 
@@ -34,13 +34,13 @@
     gpgcheck: "{{ item.gpgcheck }}"
     gpgkey: "{{ item.gpgkey }}"
     state: "{{ item.state }}"
-  loop: "{{ _yum_repository[ceph_release] }}"
+  loop: "{{ _yum_repository }}"
 
 - name: yum versionlock delete
   community.general.yum_versionlock:
     name: "{{ item.name | regex_replace('^(.*)-[0-9]*:*[0-9]+\\..*$', '\\1-*') }}"
     state: absent
-  loop: "{{ _yum[ceph_release] }}"
+  loop: "{{ _yum }}"
   when: item.state == "present"
   changed_when: false
   failed_when: false
@@ -49,7 +49,7 @@
   ansible.builtin.yum: # noqa fqcn[action-core]
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  loop: "{{ _yum[ceph_release] }}"
+  loop: "{{ _yum }}"
   register: result
   until: result is succeeded
 
@@ -57,7 +57,7 @@
   community.general.yum_versionlock:
     name: "{{ item.name | regex_replace('^(.*)-[0-9]*:*[0-9]+\\..*$', '\\1-*') }}"
     state: present
-  loop: "{{ _yum[ceph_release] }}"
+  loop: "{{ _yum }}"
   when: item.state == "present"
   changed_when: false
   failed_when: false
