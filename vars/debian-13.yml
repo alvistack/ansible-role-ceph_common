@@ -14,73 +14,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_ceph_release: "19.2"
+_ceph_release: "20.2"
 
 _apt_key:
-  "19.2":
-    - url: https://download.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
-      dest: /etc/apt/keyrings/home-alvistack.asc
-      checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
-  "18.2":
-    - url: https://download.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
-      dest: /etc/apt/keyrings/home-alvistack.asc
-      checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
-  "17.2": []
-  "16.2": []
-  "15.2": []
+  - url: https://download.opensuse.org/repositories/home:/alvistack/Debian_13/Release.key
+    dest: /etc/apt/keyrings/home-alvistack.asc
+    checksum: "sha256:2959bf5709615cba0109715e4c2001066a4536398fa54f0f602abc208f04017e"
 
 _deb822_repository:
-  "19.2":
-    - name: home-alvistack
-      types: deb
-      uris: https://download.opensuse.org/repositories/home:/alvistack/Debian_13
-      suites: /
-      components:
-      signed_by: /etc/apt/keyrings/home-alvistack.asc
-      enabled: true
-      state: present
-  "18.2":
-    - name: home-alvistack
-      types: deb
-      uris: https://download.opensuse.org/repositories/home:/alvistack/Debian_13
-      suites: /
-      components:
-      signed_by: /etc/apt/keyrings/home-alvistack.asc
-      enabled: true
-      state: present
-  "17.2": []
-  "16.2": []
-  "15.2": []
+  - name: home-alvistack
+    types: deb
+    uris: https://download.opensuse.org/repositories/home:/alvistack/Debian_13
+    suites: /
+    components:
+    signed_by: /etc/apt/keyrings/home-alvistack.asc
+    enabled: true
+    state: present
 
 _apt:
-  "19.2":
-    - { state: present, name: "librados2=100:{{ ceph_version }}*" }
-    - { state: present, name: "libradosstriper1=100:{{ ceph_version }}*" }
-    - { state: present, name: "librbd1=100:{{ ceph_version }}*" }
-    - { state: present, name: "libcephfs2=100:{{ ceph_version }}*" }
-    - { state: present, name: "librgw2=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-ceph-common=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rados=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rbd=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-cephfs=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rgw=100:{{ ceph_version }}*" }
-    - { state: present, name: "ceph-common=100:{{ ceph_version }}*" }
-    - { state: present, name: "ceph-base=100:{{ ceph_version }}*" }
-  "18.2":
-    - { state: present, name: "librados2=100:{{ ceph_version }}*" }
-    - { state: present, name: "libradosstriper1=100:{{ ceph_version }}*" }
-    - { state: present, name: "librbd1=100:{{ ceph_version }}*" }
-    - { state: present, name: "libcephfs2=100:{{ ceph_version }}*" }
-    - { state: present, name: "librgw2=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-ceph-common=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rados=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rbd=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-cephfs=100:{{ ceph_version }}*" }
-    - { state: present, name: "python3-rgw=100:{{ ceph_version }}*" }
-    - { state: present, name: "ceph-common=100:{{ ceph_version }}*" }
-    - { state: present, name: "ceph-base=100:{{ ceph_version }}*" }
-  "17.2": []
-  "16.2": []
-  "15.2": []
+  - { state: present, name: "librados2=100:{{ ceph_version }}*" }
+  - { state: present, name: "libradosstriper1=100:{{ ceph_version }}*" }
+  - { state: present, name: "librbd1=100:{{ ceph_version }}*" }
+  - { state: present, name: "libcephfs2=100:{{ ceph_version }}*" }
+  - { state: present, name: "librgw2=100:{{ ceph_version }}*" }
+  - { state: present, name: "libsqlite3-mod-ceph=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-ceph-common=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-ceph-argparse=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-rados=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-rbd=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-cephfs=100:{{ ceph_version }}*" }
+  - { state: present, name: "python3-rgw=100:{{ ceph_version }}*" }
+  - { state: present, name: "ceph-common=100:{{ ceph_version }}*" }
+  - { state: present, name: "ceph-base=100:{{ ceph_version }}*" }
