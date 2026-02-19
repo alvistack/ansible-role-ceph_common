@@ -39,6 +39,7 @@ _zypper:
   - { state: present, name: "librbd1-100:{{ ceph_version }}" }
   - { state: present, name: "libcephfs2-100:{{ ceph_version }}" }
   - { state: present, name: "librgw2-100:{{ ceph_version }}" }
+  - { state: present, name: "libcephsqlite-100:{{ ceph_version }}" }
   - { state: present, name: "python3-ceph-common-100:{{ ceph_version }}" }
   - { state: present, name: "python3-ceph-argparse-100:{{ ceph_version }}" }
   - { state: present, name: "python3-rados-100:{{ ceph_version }}" }
