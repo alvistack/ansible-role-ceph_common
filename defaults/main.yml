@@ -57,20 +57,20 @@ ceph_common_config:
   - { state: present, section: global, option: auth_client_required, value: cephx }
   - { state: present, section: global, option: auth_cluster_required, value: cephx }
   - { state: present, section: global, option: auth_service_required, value: cephx }
-  - { state: present, section: global, option: mon_max_pg_per_osd, value: "1024" }
-  - { state: present, section: global, option: mon_osd_backfillfull_ratio, value: "0.9" }
-  - { state: present, section: global, option: mon_osd_full_ratio, value: "0.95" }
-  - { state: present, section: global, option: mon_osd_nearfull_ratio, value: "0.85" }
-  - { state: present, section: global, option: mon_pg_warn_max_object_skew, value: "-1" }
-  - { state: present, section: global, option: mon_warn_on_pool_no_redundancy, value: "false" }
-  - { state: present, section: global, option: osd_pool_default_min_size, value: "1" }
-  - { state: present, section: global, option: osd_pool_default_pg_autoscale_mode, value: "on" }
-  - { state: present, section: global, option: osd_pool_default_pg_num, value: "8" }
-  - { state: present, section: global, option: osd_pool_default_pgp_num, value: "8" }
-  - { state: present, section: global, option: osd_pool_default_size, value: "1" }
-  - { state: present, section: client, option: client_oc_max_dirty, value: "16777216" }
-  - { state: present, section: client, option: client_oc_size, value: "33554432" }
-  - { state: present, section: client, option: client_oc_target_dirty, value: "8388608" }
+  - { state: present, section: global, option: mon_max_pg_per_osd, value: "1024" }  # 250 * 4
+  - { state: present, section: global, option: mon_osd_backfillfull_ratio, value: "0.9" }  # 0.9
+  - { state: present, section: global, option: mon_osd_full_ratio, value: "0.95" }  # 0.95
+  - { state: present, section: global, option: mon_osd_nearfull_ratio, value: "0.85" }  # 0.85
+  - { state: present, section: global, option: mon_pg_warn_max_object_skew, value: "-1" }  # 10
+  - { state: present, section: global, option: mon_warn_on_pool_no_redundancy, value: "false" }  # true
+  - { state: present, section: global, option: osd_pool_default_min_size, value: "1" }  # size-size/2
+  - { state: present, section: global, option: osd_pool_default_pg_autoscale_mode, value: "on" }  # on
+  - { state: present, section: global, option: osd_pool_default_pg_num, value: "8" }  # 32 / 4
+  - { state: present, section: global, option: osd_pool_default_pgp_num, value: "8" }  # 32 /4
+  - { state: present, section: global, option: osd_pool_default_size, value: "1" }  # 3
+  - { state: present, section: client, option: client_oc_max_dirty, value: "{{ 32 * 1024 * 1024 }}" }  # 100Mi / 4
+  - { state: present, section: client, option: client_oc_size, value: "{{ 64 * 1024 * 1024 }}" }  # 200Mi / 4
+  - { state: present, section: client, option: client_oc_target_dirty, value: "{{ 8 * 1024 * 1024 }}" }  # 8Mi
 
 # Kernel modules.
 ceph_modprobe:
