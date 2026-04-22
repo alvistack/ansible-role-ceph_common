@@ -20,6 +20,9 @@ ceph_release: "{{ _ceph_release }}"
 # Ceph version.
 ceph_version: "{{ _ceph_version[ceph_release] }}"
 
+# Ceph detected memory total (default with 8192Mi).
+ceph_memtotal_mb: "{{ (((ansible_facts['ansible_memtotal_mb'] / 1024) | round(0, 'ceil')) * 1024) | int }}"
+
 # Ceph fsid.
 ceph_fsid: "{{ hostvars[groups['ceph_mon'][0]].ansible_facts['machine_id'] }}"
 
@@ -68,8 +71,8 @@ ceph_common_config:
   - { state: present, section: global, option: osd_pool_default_pg_num, value: "8" }  # 32 / 4
   - { state: present, section: global, option: osd_pool_default_pgp_num, value: "8" }  # 32 /4
   - { state: present, section: global, option: osd_pool_default_size, value: "1" }  # 3
-  - { state: present, section: client, option: client_oc_max_dirty, value: "{{ (32 * 1024 * 1024) | int }}" }  # 100Mi / 4
-  - { state: present, section: client, option: client_oc_size, value: "{{ (64 * 1024 * 1024) | int }}" }  # 200Mi / 4
+  - { state: present, section: client, option: client_oc_max_dirty, value: "{{ ((ceph_memtotal_mb / 256) * 1024 * 1024) | int }}" }  # 100Mi / 4 ~= 32Mi
+  - { state: present, section: client, option: client_oc_size, value: "{{ ((ceph_memtotal_mb / 128) * 1024 * 1024) | int }}" }  # 200Mi / 4 ~= 64Mi
   - { state: present, section: client, option: client_oc_target_dirty, value: "{{ (8 * 1024 * 1024) | int }}" }  # 8Mi
 
 # Kernel modules.
