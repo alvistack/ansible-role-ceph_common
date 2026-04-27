@@ -76,8 +76,8 @@ ceph_common_config:
   - { state: present, section: global, option: osd_pool_default_pg_num, value: "8" }  # 32 / 4 ~= 8
   - { state: present, section: global, option: osd_pool_default_pgp_num, value: "8" }  # 32 / 4 ~= 8
   - { state: present, section: global, option: osd_pool_default_size, value: "1" }  # 3
-  - { state: present, section: client, option: client_oc_max_dirty, value: "{{ (ceph_memtotal_mb * (16 / 8192) * 1024 * 1024) | int }}" }  # 100Mi / 8 ~= 16Mi
-  - { state: present, section: client, option: client_oc_size, value: "{{ (ceph_memtotal_mb * (32 / 8192) * 1024 * 1024) | int }}" }  # 200Mi / 8 ~= 32Mi
+  - { state: present, section: client, option: client_oc_max_dirty, value: "{{ ((ceph_memtotal_mb | float) * (16 / 8192) * 1024 * 1024) | int }}" }  # 100Mi / 8 ~= 16Mi
+  - { state: present, section: client, option: client_oc_size, value: "{{ ((ceph_memtotal_mb | float) * (32 / 8192) * 1024 * 1024) | int }}" }  # 200Mi / 8 ~= 32Mi
   - { state: present, section: client, option: client_oc_target_dirty, value: "{{ (8 * 1024 * 1024) | int }}" }  # 8Mi
 
 # Kernel modules.
