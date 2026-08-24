@@ -62,7 +62,7 @@ ceph_common_config:
   - { state: present, section: global, option: mon_host, value: "{{ ceph_mon_host }}" }
   - { state: present, section: global, option: mon_initial_members, value: "{{ ceph_mon_initial_members }}" }
   - { state: present, section: global, option: public_network, value: "{{ ceph_public_network }}" }
-  - { state: present, section: global, option: auth_allow_insecure_global_id_reclaim, value: "true" }  # true
+  - { state: present, section: global, option: auth_allow_insecure_global_id_reclaim, value: "false" }  # true
   - { state: present, section: global, option: auth_client_required, value: cephx }
   - { state: present, section: global, option: auth_cluster_required, value: cephx }
   - { state: present, section: global, option: auth_service_required, value: cephx }
