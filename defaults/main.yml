@@ -91,6 +91,6 @@ ceph_modprobe:
 ceph_sysctl:
   - { state: present, name: fs.file-max, value: "26234859" }
   - { state: present, name: kernel.pid_max, value: "4194303" }
-  - { state: present, name: vm.min_free_kbytes, value: "65536" }
-  - { state: present, name: vm.swappiness, value: "0" }
+  - { state: present, name: vm.min_free_kbytes, value: "262144" }
+  - { state: present, name: vm.swappiness, value: "1" }
   - { state: present, name: vm.zone_reclaim_mode, value: "0" }
